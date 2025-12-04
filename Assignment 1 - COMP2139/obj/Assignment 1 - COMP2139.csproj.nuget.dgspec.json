@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj": {}
+    "/Users/mackenziehodgson/Desktop/Assignment 1/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj": {}
   },
   "projects": {
-    "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj": {
+    "/Users/mackenziehodgson/Desktop/Assignment 1/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj",
+        "projectUniqueName": "/Users/mackenziehodgson/Desktop/Assignment 1/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj",
         "projectName": "Assignment 1 - COMP2139",
-        "projectPath": "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj",
+        "projectPath": "/Users/mackenziehodgson/Desktop/Assignment 1/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/Assignment 1 - COMP2139.csproj",
         "packagesPath": "/Users/mackenziehodgson/.nuget/packages/",
-        "outputPath": "/Users/mackenziehodgson/Desktop/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/obj/",
+        "outputPath": "/Users/mackenziehodgson/Desktop/Assignment 1/ASP1/Assignment-1---COMP2139/Assignment 1 - COMP2139/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mackenziehodgson/.nuget/NuGet/NuGet.Config"
