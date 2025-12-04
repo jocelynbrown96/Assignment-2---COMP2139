@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment 2 - COMP2139", "Assignment 2 - COMP2139\Assignment 2 - COMP2139.csproj", "{C34681D5-5CB4-41AB-967B-928AEEF9D28E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment 1 - COMP2139", "Assignment 1 - COMP2139\Assignment 1 - COMP2139.csproj", "{C34681D5-5CB4-41AB-967B-928AEEF9D28E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
