@@ -1,4 +1,4 @@
-# Assignment-1 — COMP2139
+# Assignment-2 — COMP2139
 
 ## TicketMe - Virtual Event Ticketing System
 
@@ -44,6 +44,7 @@ TicketMe uses **PostgreSQL** for its database. The connection string is stored i
 "ConnectionStrings": {
   "DefaultConnection": "Host=localhost;Port=5432;Database=TicketMeDB;Username=YOUR_DB_USERNAME;Password=YOUR_DB_PASSWORD"
 }
+
 
 
 
