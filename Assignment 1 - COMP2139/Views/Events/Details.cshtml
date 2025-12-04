@@ -1,0 +1,57 @@
+﻿@model Assignment_1___COMP2139.Models.Event
+
+@{
+    ViewData["Title"] = @Model.Title;
+}
+
+<style>
+
+
+    .navbar.bg-white { /*Black Nav Bar*/
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important;
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important;
+    }
+    /* Body base styles */
+    body {
+        background-color: lightgrey;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+
+    </style>
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-body">
+            <h1 class="card-title mb-3">@Model.Title</h1>
+
+            <p class="card-text">
+                <span class="me-3">🗓️ <strong>Date:</strong> @Model.Date.ToString("MMMM dd, yyyy")</span><br />
+                <span class="me-3">📍 <strong>Location:</strong> @Model.Location</span><br />
+                <span class="me-3">📂 <strong>Category:</strong> @Model.Category?.Name</span><br />
+                <span class="me-3">💵 <strong>Price:</strong> $@Model.TicketPrice.ToString("F2")</span><br />
+                <span class="me-3">🎫 <strong>Available Tickets:</strong> @Model.AvailableTickets</span>
+            </p>
+       
+            <!-- Back link -->
+            <a asp-controller="Events" asp-action="Index" class="btn btn-link mt-3">← Back to Events</a>
+        </div>
+    </div>
+</div>

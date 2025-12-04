@@ -1,0 +1,319 @@
+2025-12-04 15:23:04.071 -05:00 [INF] User profile is available. Using 'C:\Users\kawai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-04 15:23:05.016 -05:00 [ERR] Failed executing DbCommand (57ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:23:05.038 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Assignment_1___COMP2139.Data.ApplicationDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: relation "AspNetRoles" does not exist
+
+POSITION: 73
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "AspNetRoles" does not exist
+    Position: 73
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: relation "AspNetRoles" does not exist
+
+POSITION: 73
+   at Npgsql.Internal.NpgsqlConnector.ReadMessageLong(Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at System.Runtime.CompilerServices.PoolingAsyncValueTaskMethodBuilder`1.StateMachineBox`1.System.Threading.Tasks.Sources.IValueTaskSource<TResult>.GetResult(Int16 token)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(Boolean async, CommandBehavior behavior, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "AspNetRoles" does not exist
+    Position: 73
+    File: parse_relation.c
+    Line: 1452
+    Routine: parserOpenTable
+2025-12-04 15:45:11.477 -05:00 [INF] User profile is available. Using 'C:\Users\kawai\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-12-04 15:45:12.399 -05:00 [INF] Executed DbCommand (52ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:45:12.431 -05:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:45:12.517 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3);
+2025-12-04 15:45:12.526 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:45:12.527 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:45:12.529 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3);
+2025-12-04 15:45:12.530 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:45:12.530 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-04 15:45:12.531 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?', @p1='?', @p2='?', @p3='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetRoles" ("Id", "ConcurrencyStamp", "Name", "NormalizedName")
+VALUES (@p0, @p1, @p2, @p3);
+2025-12-04 15:45:12.540 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-04 15:45:12.592 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-04 15:45:12.631 -05:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?', @p1='?' (DbType = Int32), @p2='?', @p3='?', @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (DbType = Boolean), @p13='?', @p14='?', @p15='?' (DbType = Boolean), @p16='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUsers" ("Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImagePath", "SecurityStamp", "TwoFactorEnabled", "UserName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2025-12-04 15:45:12.638 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-04 15:45:12.662 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?', @__p_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."UserId", a."RoleId"
+FROM "AspNetUserRoles" AS a
+WHERE a."UserId" = @__p_0 AND a."RoleId" = @__p_1
+LIMIT 1
+2025-12-04 15:45:12.665 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-04 15:45:12.672 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-04 15:45:12.694 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?', @p1='?', @p18='?', @p2='?' (DbType = Int32), @p3='?', @p19='?', @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?' (DbType = Boolean), @p17='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUserRoles" ("RoleId", "UserId")
+VALUES (@p0, @p1);
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p2, "ConcurrencyStamp" = @p3, "Email" = @p4, "EmailConfirmed" = @p5, "FullName" = @p6, "LockoutEnabled" = @p7, "LockoutEnd" = @p8, "NormalizedEmail" = @p9, "NormalizedUserName" = @p10, "PasswordHash" = @p11, "PhoneNumber" = @p12, "PhoneNumberConfirmed" = @p13, "ProfileImagePath" = @p14, "SecurityStamp" = @p15, "TwoFactorEnabled" = @p16, "UserName" = @p17
+WHERE "Id" = @p18 AND "ConcurrencyStamp" = @p19;
+2025-12-04 15:45:12.786 -05:00 [INF] Now listening on: http://localhost:5285
+2025-12-04 15:45:12.787 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-04 15:45:12.787 -05:00 [INF] Hosting environment: Development
+2025-12-04 15:45:12.787 -05:00 [INF] Content root path: C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139
+2025-12-04 15:45:13.266 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-04 15:45:13.268 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-12-04 15:45:13.296 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:13.302 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-04 15:45:13.307 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:13.310 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2461ms.
+2025-12-04 15:45:13.317 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:13.384 -05:00 [INF] Executed ViewResult - view Index executed in 67.5757ms.
+2025-12-04 15:45:13.384 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 81.4809ms
+2025-12-04 15:45:13.384 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:13.386 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 121.2862ms
+2025-12-04 15:45:13.399 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/css/site.css?v=EC8rJ0Ql15PgHQ58pgRzZLZjrVDVxiFCOcEqma41-GM - null null
+2025-12-04 15:45:13.399 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-12-04 15:45:13.400 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:13.401 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/HomeBanner.png - null null
+2025-12-04 15:45:13.401 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/lib/jquery/dist/jquery.min.js - null null
+2025-12-04 15:45:13.406 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 5.0654ms
+2025-12-04 15:45:13.408 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-12-04 15:45:13.408 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:13.408 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-12-04 15:45:13.417 -05:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\css\site.css'
+2025-12-04 15:45:13.417 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2025-12-04 15:45:13.417 -05:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\lib\jquery\dist\jquery.min.js'
+2025-12-04 15:45:13.417 -05:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\js\site.js'
+2025-12-04 15:45:13.417 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2025-12-04 15:45:13.418 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 200 231 text/javascript 10.1368ms
+2025-12-04 15:45:13.418 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/css/site.css?v=EC8rJ0Ql15PgHQ58pgRzZLZjrVDVxiFCOcEqma41-GM - 200 703 text/css 18.9129ms
+2025-12-04 15:45:13.418 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/lib/bootstrap/dist/css/bootstrap.min.css - 200 232808 text/css 18.9835ms
+2025-12-04 15:45:13.418 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/lib/jquery/dist/jquery.min.js - 200 87535 text/javascript 17.2586ms
+2025-12-04 15:45:13.418 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 200 80727 text/javascript 10.6138ms
+2025-12-04 15:45:13.420 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/eras.png - null null
+2025-12-04 15:45:13.421 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/super.png - null null
+2025-12-04 15:45:13.421 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/adele.png - null null
+2025-12-04 15:45:13.421 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/bts.png - null null
+2025-12-04 15:45:13.421 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/nba.png - null null
+2025-12-04 15:45:13.422 -05:00 [INF] Sending file. Request path: '/HomeBanner.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\HomeBanner.png'
+2025-12-04 15:45:13.422 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/HomeBanner.png - 200 937025 image/png 20.8194ms
+2025-12-04 15:45:13.425 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/f1.png - null null
+2025-12-04 15:45:13.465 -05:00 [INF] Sending file. Request path: '/adele.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\adele.png'
+2025-12-04 15:45:13.465 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/adele.png - 200 5715826 image/png 44.4335ms
+2025-12-04 15:45:13.487 -05:00 [INF] Sending file. Request path: '/super.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\super.png'
+2025-12-04 15:45:13.487 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/super.png - 200 7743124 image/png 66.6865ms
+2025-12-04 15:45:13.494 -05:00 [INF] Sending file. Request path: '/f1.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\f1.png'
+2025-12-04 15:45:13.494 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/f1.png - 200 7057606 image/png 69.1255ms
+2025-12-04 15:45:13.496 -05:00 [INF] Sending file. Request path: '/eras.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\eras.png'
+2025-12-04 15:45:13.496 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/eras.png - 200 8398920 image/png 75.3711ms
+2025-12-04 15:45:13.498 -05:00 [INF] Sending file. Request path: '/nba.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\nba.png'
+2025-12-04 15:45:13.498 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/nba.png - 200 8186735 image/png 76.847ms
+2025-12-04 15:45:13.503 -05:00 [INF] Sending file. Request path: '/bts.png'. Physical path: 'C:\Users\kawai\OneDrive\Desktop\F25\COMP2139\Assignment 1 - COMP2139\Assignment 1 - COMP2139\wwwroot\bts.png'
+2025-12-04 15:45:13.504 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/bts.png - 200 8631400 image/png 82.2151ms
+2025-12-04 15:45:18.469 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Events/Details/11 - null null
+2025-12-04 15:45:18.471 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.EventsController.Details (Assignment 1 - COMP2139)'
+2025-12-04 15:45:18.479 -05:00 [INF] Route matched with {action = "Details", controller = "Events", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Details(Int32) on controller Assignment_1___COMP2139.Controllers.EventsController (Assignment 1 - COMP2139).
+2025-12-04 15:45:18.483 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.EventsController.Details (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:18.570 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."AvailableTickets", e."CategoryId", e."Date", e."Location", e."TicketPrice", e."Title", c."Id", c."Description", c."Name"
+FROM "Events" AS e
+INNER JOIN "Categories" AS c ON e."CategoryId" = c."Id"
+WHERE e."Id" = @__id_0
+LIMIT 1
+2025-12-04 15:45:18.605 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.EventsController.Details (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 121.789ms.
+2025-12-04 15:45:18.608 -05:00 [INF] Executing ViewResult, running view Details.
+2025-12-04 15:45:18.616 -05:00 [INF] Executed ViewResult - view Details executed in 8.732ms.
+2025-12-04 15:45:18.617 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.EventsController.Details (Assignment 1 - COMP2139) in 138.5754ms
+2025-12-04 15:45:18.618 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.EventsController.Details (Assignment 1 - COMP2139)'
+2025-12-04 15:45:18.627 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Events/Details/11 - 200 null text/html; charset=utf-8 158.7515ms
+2025-12-04 15:45:18.629 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:18.630 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.6919ms
+2025-12-04 15:45:18.630 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:20.080 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Events - null null
+2025-12-04 15:45:20.080 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.EventsController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:20.083 -05:00 [INF] Route matched with {action = "Index", controller = "Events", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.Nullable`1[System.Int32], System.String) on controller Assignment_1___COMP2139.Controllers.EventsController (Assignment 1 - COMP2139).
+2025-12-04 15:45:20.087 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.EventsController.Index (Assignment 1 - COMP2139) - Validation state: "Invalid"
+2025-12-04 15:45:20.104 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "Categories" AS c
+2025-12-04 15:45:20.130 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT e."Id", e."AvailableTickets", e."CategoryId", e."Date", e."Location", e."TicketPrice", e."Title", c."Id", c."Description", c."Name"
+FROM "Events" AS e
+INNER JOIN "Categories" AS c ON e."CategoryId" = c."Id"
+2025-12-04 15:45:20.132 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.EventsController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 44.2278ms.
+2025-12-04 15:45:20.132 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:20.153 -05:00 [INF] Executed ViewResult - view Index executed in 21.1141ms.
+2025-12-04 15:45:20.153 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.EventsController.Index (Assignment 1 - COMP2139) in 69.4712ms
+2025-12-04 15:45:20.153 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.EventsController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:20.153 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Events - 200 null text/html; charset=utf-8 73.1329ms
+2025-12-04 15:45:20.165 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:20.166 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.2846ms
+2025-12-04 15:45:20.166 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:21.143 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-04 15:45:21.143 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:21.143 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-04 15:45:21.143 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:21.143 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0148ms.
+2025-12-04 15:45:21.143 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:21.144 -05:00 [INF] Executed ViewResult - view Index executed in 0.5806ms.
+2025-12-04 15:45:21.144 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 0.8373ms
+2025-12-04 15:45:21.144 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:21.144 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 1.2754ms
+2025-12-04 15:45:21.157 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:21.158 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.5373ms
+2025-12-04 15:45:21.158 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:22.420 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Home/About - null null
+2025-12-04 15:45:22.420 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.About (Assignment 1 - COMP2139)'
+2025-12-04 15:45:22.421 -05:00 [INF] Route matched with {action = "About", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult About() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-04 15:45:22.421 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.About (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:22.421 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.About (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.1365ms.
+2025-12-04 15:45:22.422 -05:00 [INF] Executing ViewResult, running view About.
+2025-12-04 15:45:22.424 -05:00 [INF] Executed ViewResult - view About executed in 2.4977ms.
+2025-12-04 15:45:22.424 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.About (Assignment 1 - COMP2139) in 2.9019ms
+2025-12-04 15:45:22.424 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.About (Assignment 1 - COMP2139)'
+2025-12-04 15:45:22.424 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Home/About - 200 null text/html; charset=utf-8 4.0348ms
+2025-12-04 15:45:22.436 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:22.436 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.412ms
+2025-12-04 15:45:22.436 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:24.089 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Categories - null null
+2025-12-04 15:45:24.089 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:24.091 -05:00 [INF] Route matched with {action = "Index", controller = "Categories", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Assignment_1___COMP2139.Controllers.CategoriesController (Assignment 1 - COMP2139).
+2025-12-04 15:45:24.093 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:24.095 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "Categories" AS c
+2025-12-04 15:45:24.095 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 2.1131ms.
+2025-12-04 15:45:24.096 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:24.100 -05:00 [INF] Executed ViewResult - view Index executed in 4.611ms.
+2025-12-04 15:45:24.100 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139) in 8.7575ms
+2025-12-04 15:45:24.100 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:24.100 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Categories - 200 null text/html; charset=utf-8 11.2894ms
+2025-12-04 15:45:24.112 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:24.112 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.2606ms
+2025-12-04 15:45:24.113 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:25.615 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Purchases - null null
+2025-12-04 15:45:25.615 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.PurchasesController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:25.617 -05:00 [INF] Route matched with {action = "Index", controller = "Purchases", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Assignment_1___COMP2139.Controllers.PurchasesController (Assignment 1 - COMP2139).
+2025-12-04 15:45:25.618 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.PurchasesController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:25.658 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."GuestEmail", p."GuestName", p."PurchaseDate", s."PurchaseId", s."EventId", s."Id", s."Quantity", s."Id0", s."AvailableTickets", s."CategoryId", s."Date", s."Location", s."TicketPrice", s."Title", s."Id1", s."Description", s."Name"
+FROM "Purchases" AS p
+LEFT JOIN (
+    SELECT p0."PurchaseId", p0."EventId", p0."Id", p0."Quantity", e."Id" AS "Id0", e."AvailableTickets", e."CategoryId", e."Date", e."Location", e."TicketPrice", e."Title", c."Id" AS "Id1", c."Description", c."Name"
+    FROM "PurchaseEvents" AS p0
+    INNER JOIN "Events" AS e ON p0."EventId" = e."Id"
+    INNER JOIN "Categories" AS c ON e."CategoryId" = c."Id"
+) AS s ON p."Id" = s."PurchaseId"
+ORDER BY p."Id", s."PurchaseId", s."EventId", s."Id0"
+2025-12-04 15:45:25.659 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.PurchasesController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 40.7531ms.
+2025-12-04 15:45:25.659 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:25.662 -05:00 [INF] Executed ViewResult - view Index executed in 3.5151ms.
+2025-12-04 15:45:25.662 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.PurchasesController.Index (Assignment 1 - COMP2139) in 44.8708ms
+2025-12-04 15:45:25.662 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.PurchasesController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:25.662 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Purchases - 200 null text/html; charset=utf-8 47.1296ms
+2025-12-04 15:45:25.675 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:25.675 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.3587ms
+2025-12-04 15:45:25.675 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:28.981 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Categories - null null
+2025-12-04 15:45:28.981 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:28.981 -05:00 [INF] Route matched with {action = "Index", controller = "Categories", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Assignment_1___COMP2139.Controllers.CategoriesController (Assignment 1 - COMP2139).
+2025-12-04 15:45:28.982 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:28.983 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "Categories" AS c
+2025-12-04 15:45:28.983 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 1.4046ms.
+2025-12-04 15:45:28.983 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:28.984 -05:00 [INF] Executed ViewResult - view Index executed in 0.6537ms.
+2025-12-04 15:45:28.984 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139) in 2.6716ms
+2025-12-04 15:45:28.984 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.CategoriesController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:28.984 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Categories - 200 null text/html; charset=utf-8 2.9832ms
+2025-12-04 15:45:28.996 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:28.996 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.2267ms
+2025-12-04 15:45:28.997 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:30.551 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-04 15:45:30.552 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:30.552 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-04 15:45:30.552 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-04 15:45:30.552 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0063ms.
+2025-12-04 15:45:30.563 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-04 15:45:30.563 -05:00 [INF] Executed ViewResult - view Index executed in 0.5469ms.
+2025-12-04 15:45:30.563 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 11.7517ms
+2025-12-04 15:45:30.563 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-04 15:45:30.563 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 11.9773ms
+2025-12-04 15:45:30.576 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-04 15:45:30.576 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.2471ms
+2025-12-04 15:45:30.576 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-04 15:45:35.583 -05:00 [INF] Application is shutting down...

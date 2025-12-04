@@ -1,0 +1,223 @@
+﻿<style>
+    .navbar.bg-white { /*Black Nav Bar*/
+        background-color: black !important;
+    }
+
+    /* If navbar uses .bg-white alone */
+    .bg-white {
+        background-color: #222 !important;
+    }
+
+    /* Navbar link styling */
+    .navbar .nav-link {
+        color: white !important;
+        text-align: right;
+    }
+
+    /* Highlights active/hovered navbar links */
+    .navbar .nav-link.active,
+    .navbar .nav-link:hover {
+        color: #ffa500 !important;
+    }
+    /* Body base styles */
+    body {
+        background-color: lightgrey;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    /* Ensures navbar brand (site title) is white */
+    .navbar-light .navbar-brand {
+        color: #fff !important;
+    }
+
+    /* Remove all bottom margin from navbar and containers to close gaps */
+    .navbar, .container, header, .banner-container {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    /* Banner container covers full width */
+    .banner-container {
+        position: relative;
+        width: 100vw;
+        left: 50%;
+        margin-left: -50vw;
+    }
+    /* Banner background image */
+    .banner-container img {
+        width: 100vw;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+    }
+    /* Main title styling */
+    .banner-title {
+        position: absolute;
+        text-align: center;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 6rem;
+        font-weight: bold;
+        text-shadow: 0 2px 14px #1A1A1A;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 2;
+    }
+    /* Search box styling */
+    .banner-search {
+
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 12px;
+        width: 500px;
+        justify-content: center;
+        z-index: 2;
+    }
+    /* Tiles just under search, inside banner */
+    .banner-nav-tiles {
+        position: absolute;
+        top: 82%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        gap: 20px;
+        z-index: 3;
+    }
+    /* Small tile styling */
+    .banner-tile {
+        width: 160px;
+        height: 60px;
+        background: #232323cc;
+        color: #fff;
+        border-radius: 11px;
+        font-size: 1.09rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid #00aeff;
+        transition: background 0.18s, color 0.18s, transform 0.19s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .banner-tile:hover {
+        background: #00aeff;
+        color: #fff;
+        transform: translateY(-3px) scale(1.04);
+    }
+
+    .trending-section {
+        margin: 10px auto 0 auto;
+        max-width: 1400px;
+        width: 100%;
+        padding-bottom: 20px;
+    }
+    .trending-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-top: 26px;
+        margin-bottom: 26px;
+        color: #1a1a1a;
+        letter-spacing: 1px;
+    }
+    .trending-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);  /* 3 tiles in each row */
+        gap: 40px 35px;
+    }
+    .trending-tile {
+        display: flex;
+        align-items: flex-end;
+        justify-content: left;
+        height: 250px;    /* Large tiles */
+        border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0 6px 32px rgba(0,0,0,0.14), 0 2px 12px rgba(0,0,0,0.08);
+        font-size: 2rem;
+        padding: 32px;
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        transition: box-shadow .19s, transform .18s;
+    }
+    .trending-tile::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(30,30,30,0.08) 40%, rgba(30,30,30,0.47) 99%);
+        z-index: 1;
+    }
+    .trending-tile span, .trending-tile {
+        position: relative;
+        z-index: 2;
+    }
+    .trending-tile:hover {
+        box-shadow: 0 12px 38px rgba(0,174,255,0.19), 0 6px 30px rgba(0,0,0,0.13);
+        transform: scale(1.035);
+    }
+
+
+</style>
+
+<!-- Banner with title, search box, and navigation tiles -->
+<div class="banner-container">
+    <img src="/HomeBanner.png" alt="Concert crowd">
+
+    <!-- Banner title -->
+    <h1 class="banner-title">Welcome to TicketMe</h1>
+
+    <!-- Search box -->
+    <form action="/Events/Index" method="get" class="banner-search">
+        <input
+            type="text"
+            name="searchString"
+            placeholder="Search events..."
+            style="padding: 12px 20px; font-size: 1.1rem; border-radius: 10px; border: 1px solid #aaa; width: 400px;" />
+        <button
+            type="submit"
+            style="padding: 12px 24px; border-radius: 10px; border: none; background: #222; color: #fff; font-size: 1.1rem; font-weight: bold;background: #232323cc;
+        color: #fff;
+        border-radius: 11px;
+        font-size: 1.09rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid #00aeff;">
+            Search
+        </button>
+    </form>
+
+    <!-- Three small navigation tiles placed right below search bar -->
+    <div class="banner-nav-tiles">
+        <a asp-controller="Home" asp-action="About" class="banner-tile">About</a>
+        <a asp-controller="Events" asp-action="Index" class="banner-tile">Events</a>
+        <a asp-controller="Categories" asp-action="Index" class="banner-tile">Categories</a>
+        <a asp-controller="Purchases" asp-action="Index" class="banner-tile">Purchases</a>
+    </div>
+</div>
+
+<!-- Trending Section -->
+<!-- Trending Section -->
+<div class="trending-section">
+    <h2 class="trending-title">Trending</h2>
+    <div class="trending-grid">
+        <!-- Row 1 -->
+        <a href="http://localhost:5285/Events/Details/4" class="trending-tile" style="background-image:url('eras.png');"></a>
+        <a href="http://localhost:5285/Events/Details/10" class="trending-tile" style="background-image:url('super.png');"></a>
+        <a href="http://localhost:5285/Events/Details/1" class="trending-tile" style="background-image:url('adele.png');"></a>
+        <!-- Row 2 -->
+        <a href="http://localhost:5285/Events/Details/8" class="trending-tile" style="background-image:url('nba.png');"></a>
+        <a href="http://localhost:5285/Events/Details/5" class="trending-tile" style="background-image:url('bts.png');"></a>
+        <a href="http://localhost:5285/Events/Details/11" class="trending-tile" style="background-image:url('f1.png');"></a>
+    </div>
+</div>

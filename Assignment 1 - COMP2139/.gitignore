@@ -1,0 +1,10 @@
+﻿# Ignore local settings
+appsettings.json
+appsettings.Development.json
+
+# Ignore Rider project files
+.idea/
+
+# Ignore build outputs
+bin/
+obj/
