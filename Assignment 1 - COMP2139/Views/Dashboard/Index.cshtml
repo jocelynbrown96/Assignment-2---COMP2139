@@ -19,7 +19,6 @@
             <h4>My Tickets</h4>
 
             <div class="list-group">
-
                 @if (!Model.Any())
                 {
                     <div class="list-group-item text-muted">
@@ -44,15 +43,12 @@
                                 </div>
 
                                 <div class="text-end">
-
-                                    <!-- REAL QR CODE -->
                                     <img src="/Purchases/QRCode/@purchase.Id"
                                          class="img-thumbnail"
                                          style="width:80px; height:80px;" />
 
                                     <br />
 
-                                    <!-- DOWNLOAD BUTTON -->
                                     <a class="btn btn-primary btn-sm mt-2"
                                        asp-controller="Purchases"
                                        asp-action="DownloadTicket"
@@ -76,7 +72,6 @@
         <h4>Purchase History</h4>
 
         <div class="list-group">
-
             @if (!Model.Any())
             {
                 <div class="list-group-item text-muted">
@@ -96,7 +91,6 @@
                                 Quantity: @pe.Quantity
                             </small>
 
-                            <!-- STAR RATING -->
                             <div class="rating mt-2" data-event-id="@pe.Event.Id">
                                 <i class="fa-regular fa-star" data-value="1"></i>
                                 <i class="fa-regular fa-star" data-value="2"></i>
@@ -109,9 +103,8 @@
                 }
             }
         </div>
-
-        <small class="text-muted">Star ratings will be saved later using AJAX.</small>
     </div>
+
 </div>
 
 <div class="row">
@@ -125,58 +118,96 @@
             <div class="card p-3">
                 <h4>My Events (Organizer)</h4>
 
-                <div class="list-group">
+                @{
+                    var myEvents = ViewBag.MyEvents as List<Event>;
+                }
 
-                    @foreach (var purchase in Model)
+                <div class="list-group">
+                    @if (myEvents == null || !myEvents.Any())
                     {
-                        foreach (var pe in purchase.PurchaseEvents)
+                        <div class="list-group-item text-muted">
+                            You haven't created any events yet.
+                        </div>
+                    }
+                    else
+                    {
+                        foreach (var ev in myEvents)
                         {
                             <div class="list-group-item d-flex justify-content-between align-items-center">
 
                                 <div>
-                                    <h5 class="mb-1">@pe.Event.Title</h5>
+                                    <h5 class="mb-1">@ev.Title</h5>
                                     <small>
-                                        Date: @pe.Event.Date.ToString("MMM dd, yyyy") |
-                                        Location: @pe.Event.Location
+                                        Date: @ev.Date.ToString("MMM dd, yyyy") <br />
+                                        Location: @ev.Location
                                     </small>
-                                    <br />
-                                    <small>Quantity: @pe.Quantity</small>
                                 </div>
 
                                 <div class="text-end">
-
-                                    <!-- REAL QR CODE -->
-                                    <img src="/Purchases/QRCode/@purchase.Id"
-                                         class="img-thumbnail"
-                                         style="width:80px; height:80px;" />
-
-                                    <br />
-
-                                    <!-- DOWNLOAD BUTTON -->
-                                    <a class="btn btn-primary btn-sm mt-2"
-                                       asp-controller="Purchases"
-                                       asp-action="DownloadTicket"
-                                       asp-route-id="@purchase.Id">
-                                        Download Ticket
+                                    <a class="btn btn-warning btn-sm"
+                                       asp-controller="Events"
+                                       asp-action="Edit"
+                                       asp-route-id="@ev.Id">
+                                        Edit
                                     </a>
+
+                                    <form asp-controller="Events"
+                                          asp-action="Delete"
+                                          asp-route-id="@ev.Id"
+                                          method="post"
+                                          style="display:inline;">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </div>
 
                             </div>
                         }
                     }
-
                 </div>
 
-                <small class="text-muted">
-                    Real events and revenue data will appear here once backend integration is added.
-                </small>
             </div>
         </div>
     }
 
     <!-- ========================= -->
-    <!--         PROFILE           -->
+    <!--        ADMIN SECTION      -->
     <!-- ========================= -->
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col-md-6 mb-3">
+            <div class="card p-3 border-danger">
+                <h4 class="text-danger">Admin Panel</h4>
+                <p class="text-muted">Full system control</p>
+
+                <div class="list-group">
+                    <a asp-controller="Events" asp-action="Index"
+                       class="list-group-item list-group-item-action">
+                        📅 Manage All Events
+                    </a>
+
+                    <a asp-controller="Purchases" asp-action="Index"
+                       class="list-group-item list-group-item-action">
+                        💳 View All Purchases
+                    </a>
+
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index"
+                       class="list-group-item list-group-item-action">
+                        👤 Manage Users
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+<!-- ========================= -->
+<!--         PROFILE           -->
+<!-- ========================= -->
+<div class="row">
     <div class="col-md-6 mb-3">
         <div class="card p-3">
             <h4>Profile</h4>
@@ -190,7 +221,6 @@
                         : Url.Content(currentUser.ProfileImagePath);
                 }
 
-                <!-- Profile image -->
                 <img src="@profileImage"
                      class="rounded-circle border"
                      style="width:80px; height:80px; object-fit:cover;" />

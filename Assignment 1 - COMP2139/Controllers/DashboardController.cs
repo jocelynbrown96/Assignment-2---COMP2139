@@ -21,7 +21,6 @@ namespace Assignment_1___COMP2139.Controllers
 
         public async Task<IActionResult> Index()
         {
-            // Get logged-in user
             var user = await _userManager.GetUserAsync(User);
 
             if (user == null)
@@ -29,7 +28,7 @@ namespace Assignment_1___COMP2139.Controllers
                 return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
 
-            // Load all purchases for this user — including events + categories
+            // 1) Load this user's purchases (for My Tickets / History)
             var purchases = await _context.Purchases
                 .Where(p => p.UserId == user.Id)
                 .Include(p => p.PurchaseEvents)
@@ -37,6 +36,20 @@ namespace Assignment_1___COMP2139.Controllers
                 .ThenInclude(e => e.Category)
                 .ToListAsync();
 
+            // 2) If they are an Organizer, load events they created
+            List<Event> myEvents = new();
+            if (User.IsInRole("Organizer"))
+            {
+                myEvents = await _context.Events
+                    .Where(e => e.OrganizerId == user.Id)
+                    .Include(e => e.Category)
+                    .ToListAsync();
+            }
+
+            // 3) Pass organizer events to the view
+            ViewBag.MyEvents = myEvents;
+
+            // View still strongly-typed to purchases
             return View(purchases);
         }
     }

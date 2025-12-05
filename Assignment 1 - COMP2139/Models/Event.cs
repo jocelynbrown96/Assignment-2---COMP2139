@@ -44,5 +44,7 @@ namespace Assignment_1___COMP2139.Models
 
         // Navigation to the user account
         public ApplicationUser? Organizer { get; set; }
+
+
     }
 }
