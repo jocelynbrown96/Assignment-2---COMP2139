@@ -8051,3 +8051,95 @@ LIMIT 2
 2025-12-05 13:27:57.380 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.4307ms
 2025-12-05 13:27:57.380 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
 2025-12-05 13:28:16.081 -05:00 [INF] Application is shutting down...
+2025-12-05 13:36:33.782 -05:00 [INF] User profile is available. Using '/Users/mackenziehodgson/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-12-05 13:36:34.349 -05:00 [INF] Executed DbCommand (37ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 13:36:34.401 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 13:36:34.401 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 13:36:34.408 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-05 13:36:34.422 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-05 13:36:34.425 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-05 13:36:34.437 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?', @__p_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."UserId", a."RoleId"
+FROM "AspNetUserRoles" AS a
+WHERE a."UserId" = @__p_0 AND a."RoleId" = @__p_1
+LIMIT 1
+2025-12-05 13:36:34.438 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-05 13:36:34.438 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?', @__p_1='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."UserId", a."RoleId"
+FROM "AspNetUserRoles" AS a
+WHERE a."UserId" = @__p_0 AND a."RoleId" = @__p_1
+LIMIT 1
+2025-12-05 13:36:34.440 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedRoleName_0
+LIMIT 2
+2025-12-05 13:36:34.449 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 13:36:34.529 -05:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?', @p1='?', @p18='?', @p2='?' (DbType = Int32), @p3='?', @p19='?', @p4='?', @p5='?' (DbType = Boolean), @p6='?', @p7='?' (DbType = Boolean), @p8='?' (DbType = DateTime), @p9='?', @p10='?', @p11='?', @p12='?', @p13='?' (DbType = Boolean), @p14='?', @p15='?', @p16='?' (DbType = Boolean), @p17='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUserRoles" ("RoleId", "UserId")
+VALUES (@p0, @p1);
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p2, "ConcurrencyStamp" = @p3, "Email" = @p4, "EmailConfirmed" = @p5, "FullName" = @p6, "LockoutEnabled" = @p7, "LockoutEnd" = @p8, "NormalizedEmail" = @p9, "NormalizedUserName" = @p10, "PasswordHash" = @p11, "PhoneNumber" = @p12, "PhoneNumberConfirmed" = @p13, "ProfileImagePath" = @p14, "SecurityStamp" = @p15, "TwoFactorEnabled" = @p16, "UserName" = @p17
+WHERE "Id" = @p18 AND "ConcurrencyStamp" = @p19;
+2025-12-05 13:36:34.592 -05:00 [INF] Now listening on: http://localhost:5285
+2025-12-05 13:36:34.593 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-05 13:36:34.593 -05:00 [INF] Hosting environment: Development
+2025-12-05 13:36:34.593 -05:00 [INF] Content root path: /Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139
+2025-12-05 13:36:35.622 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-05 13:36:35.625 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-12-05 13:36:35.640 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 13:36:35.644 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-05 13:36:35.648 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-05 13:36:35.650 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2194ms.
+2025-12-05 13:36:35.655 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-05 13:36:35.767 -05:00 [INF] Executed ViewResult - view Index executed in 111.9706ms.
+2025-12-05 13:36:35.767 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 122.9286ms
+2025-12-05 13:36:35.768 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 13:36:35.772 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 150.0085ms
+2025-12-05 13:36:35.786 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-12-05 13:36:35.787 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/css/site.css?v=yWF3Kh7Wfj_ym6xKdvd33XpqWxslITIWZS70Z5qUpgg - null null
+2025-12-05 13:36:35.787 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-05 13:36:35.790 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/js/site.js?v=y_Ngd8W21UpuCUhEqGbUKDEqFnNfTjAfb24GhJJGUyM - null null
+2025-12-05 13:36:35.790 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 2.912ms
+2025-12-05 13:36:35.791 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-05 13:36:35.794 -05:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/js/site.js'
+2025-12-05 13:36:35.794 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/js/site.js?v=y_Ngd8W21UpuCUhEqGbUKDEqFnNfTjAfb24GhJJGUyM - 499 227 text/javascript 4.064ms
+2025-12-05 13:36:35.794 -05:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/css/site.css'
+2025-12-05 13:36:35.794 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/css/site.css?v=yWF3Kh7Wfj_ym6xKdvd33XpqWxslITIWZS70Z5qUpgg - 499 669 text/css 7.1908ms
+2025-12-05 13:36:35.794 -05:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css'
+2025-12-05 13:36:35.794 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/lib/bootstrap/dist/css/bootstrap.min.css - 499 232803 text/css 8.6676ms
+2025-12-05 13:36:35.852 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/favicon.ico - null null
+2025-12-05 13:36:35.852 -05:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/favicon.ico'
+2025-12-05 13:36:35.852 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/favicon.ico - 499 5430 image/x-icon 0.8497ms
+2025-12-05 13:36:49.558 -05:00 [INF] Application is shutting down...

@@ -74,33 +74,41 @@ using (var scope = app.Services.CreateScope())
 
     // Seed admin user
     await DbInitializer.SeedAdminUser(userManager, roleManager);
-}
+
+// 🚀 Give Mackenzie's account the Organizer role
+    var mackenzie = await userManager.FindByEmailAsync("macken@gmail.com"); // <-- change email to YOUR login email
+
+    if (mackenzie != null && !(await userManager.IsInRoleAsync(mackenzie, "Organizer")))
+    {
+        await userManager.AddToRoleAsync(mackenzie, "Organizer");
+    }
 
 // ---------------------------
 // Middleware Pipeline:
 // ---------------------------
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/500");   // custom 500 error page
-    app.UseStatusCodePagesWithReExecute("/Home/{0}"); // 404/other status codes
-    app.UseHsts();
-}
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/500"); // custom 500 error page
+        app.UseStatusCodePagesWithReExecute("/Home/{0}"); // 404/other status codes
+        app.UseHsts();
+    }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
 
-app.UseRouting();
+    app.UseRouting();
 
-app.UseAuthentication();  // Identity
-app.UseAuthorization();
+    app.UseAuthentication(); // Identity
+    app.UseAuthorization();
 
 // ---------------------------
 // Map Routes & Razor Pages:
 // ---------------------------
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapRazorPages();
+    app.MapRazorPages();
 
-app.Run();
+    app.Run();
+}
