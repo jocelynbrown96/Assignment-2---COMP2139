@@ -3600,3 +3600,353 @@ LIMIT 1
 2025-12-05 11:14:45.819 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 1.0091ms
 2025-12-05 11:14:45.819 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
 2025-12-05 11:16:49.162 -05:00 [INF] Application is shutting down...
+2025-12-05 11:50:23.838 -05:00 [INF] User profile is available. Using '/Users/mackenziehodgson/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-12-05 11:50:24.406 -05:00 [INF] Executed DbCommand (38ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 11:50:24.457 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 11:50:24.458 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 11:50:24.463 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-05 11:50:24.520 -05:00 [INF] Now listening on: http://localhost:5285
+2025-12-05 11:50:24.521 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-05 11:50:24.521 -05:00 [INF] Hosting environment: Development
+2025-12-05 11:50:24.521 -05:00 [INF] Content root path: /Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139
+2025-12-05 11:50:25.159 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-05 11:50:25.161 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-12-05 11:50:25.205 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @__p_0
+LIMIT 1
+2025-12-05 11:50:25.209 -05:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2025-12-05 11:50:25.210 -05:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-12-05 11:50:25.210 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2025-12-05 11:50:25.210 -05:00 [INF] AuthenticationScheme: Identity.TwoFactorRememberMe signed out.
+2025-12-05 11:50:25.211 -05:00 [INF] Identity.Application was not authenticated. Failure message: No principal.
+2025-12-05 11:50:25.213 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:50:25.217 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-05 11:50:25.220 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-05 11:50:25.223 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2289ms.
+2025-12-05 11:50:25.228 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-05 11:50:25.309 -05:00 [INF] Executed ViewResult - view Index executed in 80.2442ms.
+2025-12-05 11:50:25.310 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 92.8744ms
+2025-12-05 11:50:25.310 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:50:25.316 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 157.7308ms
+2025-12-05 11:50:25.320 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-05 11:50:25.323 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 3.2694ms
+2025-12-05 11:50:25.325 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-05 11:50:25.329 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/eras.png - null null
+2025-12-05 11:50:25.329 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/super.png - null null
+2025-12-05 11:50:25.329 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/nba.png - null null
+2025-12-05 11:50:25.329 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/adele.png - null null
+2025-12-05 11:50:25.330 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/bts.png - null null
+2025-12-05 11:50:25.330 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/f1.png - null null
+2025-12-05 11:50:25.395 -05:00 [INF] Sending file. Request path: '/f1.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/f1.png'
+2025-12-05 11:50:25.395 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/f1.png - 200 7057606 image/png 65.5279ms
+2025-12-05 11:50:25.396 -05:00 [INF] Sending file. Request path: '/adele.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/adele.png'
+2025-12-05 11:50:25.396 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/adele.png - 200 5715826 image/png 66.3887ms
+2025-12-05 11:50:25.397 -05:00 [INF] Sending file. Request path: '/super.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/super.png'
+2025-12-05 11:50:25.397 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/super.png - 200 7743124 image/png 67.535ms
+2025-12-05 11:50:25.398 -05:00 [INF] Sending file. Request path: '/nba.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/nba.png'
+2025-12-05 11:50:25.398 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/nba.png - 200 8186735 image/png 68.8917ms
+2025-12-05 11:50:25.408 -05:00 [INF] Sending file. Request path: '/eras.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/eras.png'
+2025-12-05 11:50:25.408 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/eras.png - 200 8398920 image/png 79.254ms
+2025-12-05 11:50:25.411 -05:00 [INF] Sending file. Request path: '/bts.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/bts.png'
+2025-12-05 11:50:25.411 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/bts.png - 200 8631400 image/png 81.7942ms
+2025-12-05 11:50:34.647 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Identity/Account/Login - null null
+2025-12-05 11:50:34.650 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:50:34.671 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:50:34.681 -05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-05 11:50:34.682 -05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:50:34.698 -05:00 [INF] Executed page /Account/Login in 27.0572ms
+2025-12-05 11:50:34.699 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:50:34.699 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Identity/Account/Login - 200 null text/html; charset=utf-8 51.7052ms
+2025-12-05 11:50:43.147 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - application/x-www-form-urlencoded 268
+2025-12-05 11:50:43.149 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:50:43.150 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:50:43.174 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-12-05 11:50:43.187 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:50:43.190 -05:00 [WRN] Failed login attempt: mack@outlook.com
+2025-12-05 11:50:43.192 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:50:43.198 -05:00 [INF] Executed page /Account/Login in 47.9542ms
+2025-12-05 11:50:43.198 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:50:43.199 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - 200 null text/html; charset=utf-8 51.9247ms
+2025-12-05 11:50:58.528 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Dashboard - null null
+2025-12-05 11:50:58.536 -05:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-05 11:50:58.538 -05:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-12-05 11:50:58.538 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Dashboard - 302 0 null 9.7132ms
+2025-12-05 11:50:58.541 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Identity/Account/Login?ReturnUrl=%2FDashboard - null null
+2025-12-05 11:50:58.542 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:50:58.542 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:50:58.549 -05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-05 11:50:58.549 -05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:50:58.551 -05:00 [INF] Executed page /Account/Login in 8.0143ms
+2025-12-05 11:50:58.551 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:50:58.551 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Identity/Account/Login?ReturnUrl=%2FDashboard - 200 null text/html; charset=utf-8 9.7361ms
+2025-12-05 11:51:10.591 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - application/x-www-form-urlencoded 267
+2025-12-05 11:51:10.591 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:51:10.591 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:51:10.594 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-12-05 11:51:10.596 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:51:10.597 -05:00 [WRN] Failed login attempt: mack@outlook.com
+2025-12-05 11:51:10.597 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:51:10.598 -05:00 [INF] Executed page /Account/Login in 7.0969ms
+2025-12-05 11:51:10.598 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:51:10.599 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - 200 null text/html; charset=utf-8 7.8868ms
+2025-12-05 11:51:44.486 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - application/x-www-form-urlencoded 265
+2025-12-05 11:51:44.486 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:51:44.487 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:51:44.488 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-12-05 11:51:44.490 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:51:44.491 -05:00 [WRN] Failed login attempt: mack@gmail.com
+2025-12-05 11:51:44.491 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:51:44.493 -05:00 [INF] Executed page /Account/Login in 6.3818ms
+2025-12-05 11:51:44.493 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:51:44.493 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - 200 null text/html; charset=utf-8 7.365ms
+2025-12-05 11:51:51.171 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - application/x-www-form-urlencoded 266
+2025-12-05 11:51:51.171 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:51:51.171 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:51:51.173 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-12-05 11:51:51.175 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:51:51.176 -05:00 [WRN] Failed login attempt: mack@gmail.com
+2025-12-05 11:51:51.176 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:51:51.177 -05:00 [INF] Executed page /Account/Login in 6.3267ms
+2025-12-05 11:51:51.178 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:51:51.178 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - 200 null text/html; charset=utf-8 7.1102ms
+2025-12-05 11:51:59.352 -05:00 [INF] Application is shutting down...
+2025-12-05 11:52:00.175 -05:00 [INF] User profile is available. Using '/Users/mackenziehodgson/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2025-12-05 11:52:00.782 -05:00 [INF] Executed DbCommand (38ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 11:52:00.830 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 11:52:00.831 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ConcurrencyStamp", a."Name", a."NormalizedName"
+FROM "AspNetRoles" AS a
+WHERE a."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-12-05 11:52:00.837 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-12-05 11:52:00.891 -05:00 [INF] Now listening on: http://localhost:5285
+2025-12-05 11:52:00.892 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-05 11:52:00.892 -05:00 [INF] Hosting environment: Development
+2025-12-05 11:52:00.892 -05:00 [INF] Content root path: /Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139
+2025-12-05 11:52:01.259 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-05 11:52:01.261 -05:00 [WRN] Failed to determine the https port for redirect.
+2025-12-05 11:52:01.273 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:52:01.276 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-05 11:52:01.278 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-05 11:52:01.280 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.2088ms.
+2025-12-05 11:52:01.285 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-05 11:52:01.349 -05:00 [INF] Executed ViewResult - view Index executed in 65.3042ms.
+2025-12-05 11:52:01.350 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 73.7971ms
+2025-12-05 11:52:01.350 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:52:01.351 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 92.7807ms
+2025-12-05 11:52:01.357 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-05 11:52:01.360 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 3.1654ms
+2025-12-05 11:52:01.363 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-05 11:52:01.367 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/eras.png - null null
+2025-12-05 11:52:01.368 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/adele.png - null null
+2025-12-05 11:52:01.368 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/super.png - null null
+2025-12-05 11:52:01.368 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/nba.png - null null
+2025-12-05 11:52:01.368 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/bts.png - null null
+2025-12-05 11:52:01.368 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/f1.png - null null
+2025-12-05 11:52:01.428 -05:00 [INF] Sending file. Request path: '/adele.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/adele.png'
+2025-12-05 11:52:01.430 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/adele.png - 200 5715826 image/png 62.1239ms
+2025-12-05 11:52:01.434 -05:00 [INF] Sending file. Request path: '/f1.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/f1.png'
+2025-12-05 11:52:01.434 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/f1.png - 200 7057606 image/png 65.5317ms
+2025-12-05 11:52:01.441 -05:00 [INF] Sending file. Request path: '/super.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/super.png'
+2025-12-05 11:52:01.441 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/super.png - 200 7743124 image/png 73.3892ms
+2025-12-05 11:52:01.445 -05:00 [INF] Sending file. Request path: '/nba.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/nba.png'
+2025-12-05 11:52:01.445 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/nba.png - 200 8186735 image/png 77.0565ms
+2025-12-05 11:52:01.445 -05:00 [INF] Sending file. Request path: '/bts.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/bts.png'
+2025-12-05 11:52:01.446 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/bts.png - 200 8631400 image/png 77.328ms
+2025-12-05 11:52:01.445 -05:00 [INF] Sending file. Request path: '/eras.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/eras.png'
+2025-12-05 11:52:01.446 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/eras.png - 200 8398920 image/png 78.3591ms
+2025-12-05 11:52:02.501 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Identity/Account/Register - null null
+2025-12-05 11:52:02.507 -05:00 [INF] Executing endpoint '/Account/Register'
+2025-12-05 11:52:02.531 -05:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2025-12-05 11:52:02.548 -05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-05 11:52:02.548 -05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:52:02.570 -05:00 [INF] Executed page /Account/Register in 38.812ms
+2025-12-05 11:52:02.570 -05:00 [INF] Executed endpoint '/Account/Register'
+2025-12-05 11:52:02.571 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Identity/Account/Register - 200 null text/html; charset=utf-8 69.7784ms
+2025-12-05 11:52:25.367 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Register - application/x-www-form-urlencoded 306
+2025-12-05 11:52:25.372 -05:00 [INF] Executing endpoint '/Account/Register'
+2025-12-05 11:52:25.373 -05:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2025-12-05 11:52:25.396 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.RegisterModel.OnPostAsync - ModelState is "Invalid"
+2025-12-05 11:52:25.397 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:52:25.399 -05:00 [INF] Executed page /Account/Register in 26.4527ms
+2025-12-05 11:52:25.399 -05:00 [INF] Executed endpoint '/Account/Register'
+2025-12-05 11:52:25.400 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Register - 200 null text/html; charset=utf-8 32.3453ms
+2025-12-05 11:52:38.015 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Register - application/x-www-form-urlencoded 307
+2025-12-05 11:52:38.016 -05:00 [INF] Executing endpoint '/Account/Register'
+2025-12-05 11:52:38.016 -05:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2025-12-05 11:52:38.020 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.RegisterModel.OnPostAsync - ModelState is "Valid"
+2025-12-05 11:52:38.103 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:52:38.170 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?', @p1='?' (DbType = Int32), @p2='?', @p3='?', @p4='?' (DbType = Boolean), @p5='?', @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?', @p9='?', @p10='?', @p11='?', @p12='?' (DbType = Boolean), @p13='?', @p14='?', @p15='?' (DbType = Boolean), @p16='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "AspNetUsers" ("Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FullName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfileImagePath", "SecurityStamp", "TwoFactorEnabled", "UserName")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2025-12-05 11:52:38.176 -05:00 [INF] User registered: macken@gmail.com
+2025-12-05 11:52:38.179 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-12-05 11:52:38.181 -05:00 [INF] Executing RedirectToPageResult, redirecting to Register.
+2025-12-05 11:52:38.182 -05:00 [INF] Executed page /Account/Register in 166.094ms
+2025-12-05 11:52:38.183 -05:00 [INF] Executed endpoint '/Account/Register'
+2025-12-05 11:52:38.186 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Register - 302 0 null 170.5352ms
+2025-12-05 11:52:38.186 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Identity/Account/Register - null null
+2025-12-05 11:52:38.186 -05:00 [INF] Executing endpoint '/Account/Register'
+2025-12-05 11:52:38.186 -05:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2025-12-05 11:52:38.186 -05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-05 11:52:38.186 -05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:52:38.187 -05:00 [INF] Executed page /Account/Register in 1.0295ms
+2025-12-05 11:52:38.187 -05:00 [INF] Executed endpoint '/Account/Register'
+2025-12-05 11:52:38.187 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Identity/Account/Register - 200 null text/html; charset=utf-8 1.2495ms
+2025-12-05 11:52:39.688 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Identity/Account/ConfirmEmail?userId=a6c67203-f623-4778-8767-1aa96bff94a2&code=CfDJ8DXfuue9VDpNkS7oz9%2B%2BejSIUk8t0R4PEPHuUH%2FIbByFmrq4dwTgPQ7jtgzu9VUtxAdAA1T%2FCFBOKmJeXRR3fnBGZF%2FtMrh3M26s9JOcOMQ96i2MtQEsN2jWEnt4LUZ16Pk0PjRWlUDFM7Yrgkq3GmD4hIgcQ0OLGSEeFY9WEq8xyiy2TtAuWNk2KwDJVl75XVOeumpZ2qtjSas%2BQOk%2FlgM5V6qbboP7KfsjHvhkozCC52wNGwqSKLPtCxgwdTXdFQ%3D%3D - null null
+2025-12-05 11:52:39.689 -05:00 [INF] Executing endpoint '/Account/ConfirmEmail'
+2025-12-05 11:52:39.694 -05:00 [INF] Route matched with {page = "/Account/ConfirmEmail", area = "Identity", action = "", controller = ""}. Executing page /Account/ConfirmEmail
+2025-12-05 11:52:39.703 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.ConfirmEmailModel.OnGetAsync - ModelState is "Valid"
+2025-12-05 11:52:39.740 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @__p_0
+LIMIT 1
+2025-12-05 11:52:39.743 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:52:39.758 -05:00 [INF] Executed DbCommand (3ms) [Parameters=[@p16='?', @p0='?' (DbType = Int32), @p1='?', @p17='?', @p2='?', @p3='?' (DbType = Boolean), @p4='?', @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?', @p8='?', @p9='?', @p10='?', @p11='?' (DbType = Boolean), @p12='?', @p13='?', @p14='?' (DbType = Boolean), @p15='?'], CommandType='"Text"', CommandTimeout='30']
+UPDATE "AspNetUsers" SET "AccessFailedCount" = @p0, "ConcurrencyStamp" = @p1, "Email" = @p2, "EmailConfirmed" = @p3, "FullName" = @p4, "LockoutEnabled" = @p5, "LockoutEnd" = @p6, "NormalizedEmail" = @p7, "NormalizedUserName" = @p8, "PasswordHash" = @p9, "PhoneNumber" = @p10, "PhoneNumberConfirmed" = @p11, "ProfileImagePath" = @p12, "SecurityStamp" = @p13, "TwoFactorEnabled" = @p14, "UserName" = @p15
+WHERE "Id" = @p16 AND "ConcurrencyStamp" = @p17;
+2025-12-05 11:52:39.759 -05:00 [INF] Email confirmed for macken@gmail.com
+2025-12-05 11:52:39.759 -05:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:52:39.763 -05:00 [INF] Executed page /Account/ConfirmEmail in 68.8459ms
+2025-12-05 11:52:39.763 -05:00 [INF] Executed endpoint '/Account/ConfirmEmail'
+2025-12-05 11:52:39.763 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Identity/Account/ConfirmEmail?userId=a6c67203-f623-4778-8767-1aa96bff94a2&code=CfDJ8DXfuue9VDpNkS7oz9%2B%2BejSIUk8t0R4PEPHuUH%2FIbByFmrq4dwTgPQ7jtgzu9VUtxAdAA1T%2FCFBOKmJeXRR3fnBGZF%2FtMrh3M26s9JOcOMQ96i2MtQEsN2jWEnt4LUZ16Pk0PjRWlUDFM7Yrgkq3GmD4hIgcQ0OLGSEeFY9WEq8xyiy2TtAuWNk2KwDJVl75XVOeumpZ2qtjSas%2BQOk%2FlgM5V6qbboP7KfsjHvhkozCC52wNGwqSKLPtCxgwdTXdFQ%3D%3D - 200 null text/html; charset=utf-8 74.4923ms
+2025-12-05 11:52:41.429 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Identity/Account/Login - null null
+2025-12-05 11:52:41.429 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:52:41.437 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:52:41.439 -05:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-05 11:52:41.439 -05:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-05 11:52:41.457 -05:00 [INF] Executed page /Account/Login in 19.7958ms
+2025-12-05 11:52:41.458 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:52:41.458 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Identity/Account/Login - 200 null text/html; charset=utf-8 29.065ms
+2025-12-05 11:52:54.002 -05:00 [INF] Request starting HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - application/x-www-form-urlencoded 267
+2025-12-05 11:52:54.003 -05:00 [INF] Executing endpoint '/Account/Login'
+2025-12-05 11:52:54.003 -05:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-12-05 11:52:54.008 -05:00 [INF] Executing handler method Assignment_1___COMP2139.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-12-05 11:52:54.013 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-12-05 11:52:54.099 -05:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."ClaimType", a."ClaimValue", a."UserId"
+FROM "AspNetUserClaims" AS a
+WHERE a."UserId" = @__user_Id_0
+2025-12-05 11:52:54.111 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a0."Name"
+FROM "AspNetUserRoles" AS a
+INNER JOIN "AspNetRoles" AS a0 ON a."RoleId" = a0."Id"
+WHERE a."UserId" = @__userId_0
+2025-12-05 11:52:54.113 -05:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-05 11:52:54.114 -05:00 [INF] User logged in: macken@gmail.com
+2025-12-05 11:52:54.114 -05:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2025-12-05 11:52:54.114 -05:00 [INF] Executing LocalRedirectResult, redirecting to /.
+2025-12-05 11:52:54.114 -05:00 [INF] Executed page /Account/Login in 110.708ms
+2025-12-05 11:52:54.114 -05:00 [INF] Executed endpoint '/Account/Login'
+2025-12-05 11:52:54.114 -05:00 [INF] Request finished HTTP/1.1 POST http://localhost:5285/Identity/Account/Login - 302 0 null 112.0158ms
+2025-12-05 11:52:54.115 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/ - null null
+2025-12-05 11:52:54.116 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:52:54.116 -05:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Assignment_1___COMP2139.Controllers.HomeController (Assignment 1 - COMP2139).
+2025-12-05 11:52:54.116 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-05 11:52:54.116 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 0.0094ms.
+2025-12-05 11:52:54.116 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-05 11:52:54.118 -05:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @__p_0
+LIMIT 1
+2025-12-05 11:52:54.119 -05:00 [INF] Executed ViewResult - view Index executed in 2.7065ms.
+2025-12-05 11:52:54.119 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139) in 2.8817ms
+2025-12-05 11:52:54.119 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.HomeController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:52:54.119 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/ - 200 null text/html; charset=utf-8 3.8236ms
+2025-12-05 11:52:54.126 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-05 11:52:54.127 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.9387ms
+2025-12-05 11:52:54.127 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-05 11:52:56.526 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Dashboard - null null
+2025-12-05 11:52:56.533 -05:00 [INF] Executing endpoint 'Assignment_1___COMP2139.Controllers.DashboardController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:52:56.538 -05:00 [INF] Route matched with {action = "Index", controller = "Dashboard", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller Assignment_1___COMP2139.Controllers.DashboardController (Assignment 1 - COMP2139).
+2025-12-05 11:52:56.538 -05:00 [INF] Executing action method Assignment_1___COMP2139.Controllers.DashboardController.Index (Assignment 1 - COMP2139) - Validation state: "Valid"
+2025-12-05 11:52:56.542 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT a."Id", a."AccessFailedCount", a."ConcurrencyStamp", a."Email", a."EmailConfirmed", a."FullName", a."LockoutEnabled", a."LockoutEnd", a."NormalizedEmail", a."NormalizedUserName", a."PasswordHash", a."PhoneNumber", a."PhoneNumberConfirmed", a."ProfileImagePath", a."SecurityStamp", a."TwoFactorEnabled", a."UserName"
+FROM "AspNetUsers" AS a
+WHERE a."Id" = @__p_0
+LIMIT 1
+2025-12-05 11:52:56.601 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."GuestEmail", p."GuestName", p."PurchaseDate", p."UserId", s."PurchaseId", s."EventId", s."Id", s."Quantity", s."Id0", s."AvailableTickets", s."CategoryId", s."Date", s."Location", s."TicketPrice", s."Title", s."Id1", s."Description", s."Name"
+FROM "Purchases" AS p
+LEFT JOIN (
+    SELECT p0."PurchaseId", p0."EventId", p0."Id", p0."Quantity", e."Id" AS "Id0", e."AvailableTickets", e."CategoryId", e."Date", e."Location", e."TicketPrice", e."Title", c."Id" AS "Id1", c."Description", c."Name"
+    FROM "PurchaseEvents" AS p0
+    INNER JOIN "Events" AS e ON p0."EventId" = e."Id"
+    INNER JOIN "Categories" AS c ON e."CategoryId" = c."Id"
+) AS s ON p."Id" = s."PurchaseId"
+WHERE p."UserId" = @__user_Id_0
+ORDER BY p."Id", s."PurchaseId", s."EventId", s."Id0"
+2025-12-05 11:52:56.602 -05:00 [INF] Executed action method Assignment_1___COMP2139.Controllers.DashboardController.Index (Assignment 1 - COMP2139), returned result Microsoft.AspNetCore.Mvc.ViewResult in 64.276ms.
+2025-12-05 11:52:56.604 -05:00 [INF] Executing ViewResult, running view Index.
+2025-12-05 11:52:56.608 -05:00 [INF] Executed ViewResult - view Index executed in 4.3825ms.
+2025-12-05 11:52:56.608 -05:00 [INF] Executed action Assignment_1___COMP2139.Controllers.DashboardController.Index (Assignment 1 - COMP2139) in 70.395ms
+2025-12-05 11:52:56.608 -05:00 [INF] Executed endpoint 'Assignment_1___COMP2139.Controllers.DashboardController.Index (Assignment 1 - COMP2139)'
+2025-12-05 11:52:56.608 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Dashboard - 200 null text/html; charset=utf-8 82.5847ms
+2025-12-05 11:52:56.626 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - null null
+2025-12-05 11:52:56.627 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/Assignment_1___COMP2139.styles.css - 404 0 null 0.7494ms
+2025-12-05 11:52:56.627 -05:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5285/Assignment_1___COMP2139.styles.css, Response status code: 404
+2025-12-05 11:52:56.628 -05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5285/uploads/default-profile.png - null null
+2025-12-05 11:52:56.630 -05:00 [INF] Sending file. Request path: '/uploads/default-profile.png'. Physical path: '/Users/mackenziehodgson/Desktop/ASP1/Assignment-2---COMP2139/Assignment 1 - COMP2139/wwwroot/uploads/default-profile.png'
+2025-12-05 11:52:56.630 -05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5285/uploads/default-profile.png - 200 105939 image/png 1.8683ms
+2025-12-05 11:53:15.494 -05:00 [INF] Application is shutting down...
