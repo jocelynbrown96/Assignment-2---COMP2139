@@ -33,4 +33,15 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult AccessDenied()
+    {
+        return View("403");
+    }
+
+    public IActionResult NotFoundPage()
+    {
+        return View("404");
+    }
+
+    public IActionResult Error404() => View();
 }

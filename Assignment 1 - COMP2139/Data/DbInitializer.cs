@@ -20,9 +20,9 @@ namespace Assignment_1___COMP2139.Data
 
         public static async Task SeedAdminUser(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            string adminEmail = "admin@example.com";
+            string adminEmail = "John@gmail.com";
             string adminPassword = "Admin123!"; // Change to a secure password
-            string adminFullName = "Admin User";
+            string adminFullName = "Admin John";
 
             // Create the admin user if it does not exist
             if (await userManager.FindByEmailAsync(adminEmail) == null)

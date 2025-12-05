@@ -6,29 +6,25 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---------------------------
-// Configure Serilog:
-// ---------------------------
+// ----------------------------------------
+// Serilog Logging
+// ----------------------------------------
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
 
-// ---------------------------
-// Add services to the container:
-// ---------------------------
+// ----------------------------------------
+// Add Services
+// ----------------------------------------
 builder.Services.AddControllersWithViews();
 
-// ---------------------------
-// Configure DbContext with PostgreSQL:
-// ---------------------------
+// PostgreSQL Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ---------------------------
-// Configure Identity:
-// ---------------------------
+// ASP.NET Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedEmail = true;
@@ -36,79 +32,84 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
 
-// ------------------------------
-// Configure Cookie Paths (Login Redirect)
-// ------------------------------
+// Cookie redirect paths
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.LoginPath = "/Identity/Account/Login";
-    options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+    options.AccessDeniedPath = "/Home/AccessDenied";
 });
 
-// ---------------------------
-// Authorization Policies:
-// ---------------------------
+// Role-based authorization policy
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("OrganizerOnly", policy =>
         policy.RequireRole("Organizer"));
 });
 
-// ---------------------------
-// Razor Pages:
-// ---------------------------
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// ---------------------------
-// Seed Roles and Admin User on Startup:
-// ---------------------------
+// ----------------------------------------
+// Seed Roles + Default Users
+// ----------------------------------------
 using (var scope = app.Services.CreateScope())
 {
     var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
     var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
-    // Seed roles
+    // Create roles: Admin, Organizer, Attendee
     await DbInitializer.SeedRoles(roleManager);
 
-    // Seed admin user
+    // Create the default admin user
     await DbInitializer.SeedAdminUser(userManager, roleManager);
 
-// 🚀 Give Mackenzie's account the Organizer role
-    var mackenzie = await userManager.FindByEmailAsync("macken@gmail.com"); // <-- change email to YOUR login email
-
-    if (mackenzie != null && !(await userManager.IsInRoleAsync(mackenzie, "Organizer")))
+    // ----------------------------------------------------
+    // Promote Mackenzie to Organizer
+    // ----------------------------------------------------
+    var mackenzie = await userManager.FindByEmailAsync("macken@gmail.com");
+    if (mackenzie != null && !await userManager.IsInRoleAsync(mackenzie, "Organizer"))
     {
         await userManager.AddToRoleAsync(mackenzie, "Organizer");
     }
 
-// ---------------------------
-// Middleware Pipeline:
-// ---------------------------
-    if (!app.Environment.IsDevelopment())
+    // ----------------------------------------------------
+    // Promote Kelly to Admin
+    // ----------------------------------------------------
+    var kelly = await userManager.FindByEmailAsync("kelly@gmail.com");
+    if (kelly != null && !await userManager.IsInRoleAsync(kelly, "Admin"))
     {
-        app.UseExceptionHandler("/Home/500"); // custom 500 error page
-        app.UseStatusCodePagesWithReExecute("/Home/{0}"); // 404/other status codes
-        app.UseHsts();
+        await userManager.AddToRoleAsync(kelly, "Admin");
     }
-
-    app.UseHttpsRedirection();
-    app.UseStaticFiles();
-
-    app.UseRouting();
-
-    app.UseAuthentication(); // Identity
-    app.UseAuthorization();
-
-// ---------------------------
-// Map Routes & Razor Pages:
-// ---------------------------
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-
-    app.MapRazorPages();
-
-    app.Run();
 }
+
+// ----------------------------------------
+// Middleware Pipeline
+// ----------------------------------------
+if (!app.Environment.IsDevelopment())
+{
+    // Custom 500 page
+    app.UseExceptionHandler("/Home/500");
+
+    // Custom 404, 403, etc.
+    app.UseStatusCodePagesWithReExecute("/Home/Error{0}");
+
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+// MVC + Razor Pages routing
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapRazorPages();
+
+app.Run();
