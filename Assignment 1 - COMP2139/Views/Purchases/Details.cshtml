@@ -5,36 +5,25 @@
 }
 
 <style>
-
-
     .navbar.bg-white { /*Black Nav Bar*/
         background-color: black !important;
     }
-
-    /* If navbar uses .bg-white alone */
     .bg-white {
         background-color: #222 !important;
     }
-
-    /* Navbar link styling */
     .navbar .nav-link {
         color: white !important;
         text-align: right;
     }
-
-    /* Highlights active/hovered navbar links */
     .navbar .nav-link.active,
     .navbar .nav-link:hover {
         color: #ffa500 !important;
     }
-    /* Body base styles */
     body {
         background-color: lightgrey;
         margin: 0;
         font-family: 'Segoe UI', Arial, sans-serif;
     }
-
-    /* Ensures navbar brand (site title) is white */
     .navbar-light .navbar-brand {
         color: #fff !important;
     }
@@ -46,26 +35,22 @@
         border-radius: 10px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     }
-
     h2 {
         color: #222;
         margin-bottom: 20px;
         text-align: center;
     }
-
     .purchase-info p {
         font-weight: bold;
         margin: 6px 0;
         color: #222;
     }
-
     table.table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 20px;
         border: 1px solid #ddd;
     }
-
     table.table th,
     table.table td {
         padding: 10px;
@@ -73,18 +58,15 @@
         border-bottom: 1px solid #bbb;
         color: #222;
     }
-
     table.table thead tr {
         background: #222;
         color: #ffa500;
         font-weight: bold;
     }
-
     table.table tbody tr:hover {
         background: #00aeff;
         color: white;
     }
-
     a.btn-primary {
         background-color: #222;
         border: none;
@@ -95,9 +77,23 @@
         transition: background-color 0.3s ease;
         text-decoration: none;
     }
-
     a.btn-primary:hover {
         background-color: #00aeff;
+    }
+
+    /*  NEW: download button styling */
+    .download-btn {
+        background-color: #00aeff;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: #fff;
+        margin-top: 20px;
+        display: inline-block;
+    }
+    .download-btn:hover {
+        background-color: #008bd1;
     }
 </style>
 
@@ -122,17 +118,36 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var pe in Model.PurchaseEvents)
-            {
-                <tr>
-                    <td>@pe.Event.Title</td>
-                    <td>@pe.Event.Date.ToString("MMMM dd, yyyy")</td>
-                    <td>@pe.Quantity</td>
-                    <td>$@((pe.Quantity * pe.Event.TicketPrice).ToString("F2"))</td>
-                </tr>
-            }
+        @foreach (var pe in Model.PurchaseEvents)
+        {
+            <tr>
+                <td>
+                    @pe.Event.Title
+                    <br />
+                    <img src="/Purchases/GetQrCode/@pe.Id"
+                         alt="QR Code"
+                         style="width:90px; height:90px; margin-top:8px; border:1px solid #ccc; border-radius:8px;" />
+                </td>
+
+                <td>@pe.Event.Date.ToString("MMMM dd, yyyy")</td>
+
+                <td>@pe.Quantity</td>
+
+                <td>$@((pe.Quantity * pe.Event.TicketPrice).ToString("F2"))</td>
+            </tr>
+        }
         </tbody>
     </table>
+
+    <!-- NEW: Download Ticket Button -->
+    <a asp-controller="Purchases"
+       asp-action="DownloadTicket"
+       asp-route-id="@Model.Id"
+       class="download-btn">
+        Download Ticket
+    </a>
+
+    <br /><br />
 
     <a asp-controller="Purchases" asp-action="Index" class="btn btn-primary">Back to Purchases</a>
 </div>
