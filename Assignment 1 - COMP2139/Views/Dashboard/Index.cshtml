@@ -1,4 +1,6 @@
 
+@model List<Assignment_1___COMP2139.Models.Purchase>
+
 @{
     ViewData["Title"] = "My Dashboard";
 }
@@ -11,161 +13,174 @@
 <div class="row">
     <!-- My Tickets -->
     <div class="col-md-6 mb-3">
-        <div class="card p-3">
-            <h4>My Tickets</h4>
-
-            <div class="list-group">
-
-                <!-- Placeholder Ticket 1 -->
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                        <h5 class="mb-1">Sample Event Name</h5>
-                        <small>Date: Jan 20, 2026 | Location: Toronto</small>
-                    </div>
-
-                    <div class="text-end">
-                        <img src="https://via.placeholder.com/80x80?text=QR" class="img-thumbnail" />
-                        <br />
-                        <button class="btn btn-primary btn-sm mt-2">Download Ticket</button>
-                    </div>
-                </div>
-
-                <!-- Placeholder Ticket 2 -->
-                <div class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
-                        <h5 class="mb-1">Another Event</h5>
-                        <small>Date: Feb 2, 2026 | Virtual Event</small>
-                    </div>
-
-                    <div class="text-end">
-                        <img src="https://via.placeholder.com/80x80?text=QR" class="img-thumbnail" />
-                        <br />
-                        <button class="btn btn-primary btn-sm mt-2">Download Ticket</button>
-                    </div>
-                </div>
-</div>
-            </div>
-
-            <small class="text-muted">Real tickets will load automatically once backend integration is added.</small>
-    </div>
-
-    <!-- Purchase History -->
-    <div class="col-md-6 mb-3">
-        <h4>Purchase History</h4>
+    <div class="card p-3">
+        <h4>My Tickets</h4>
 
         <div class="list-group">
-
-            <!-- Placeholder Purchase 1 -->
-            <div class="list-group-item">
-                <h5 class="mb-1">Sample Event Name</h5>
-                <small>Purchased on: Jan 10, 2026</small>
-
-                <!-- Star Rating -->
-                <div class="rating mt-2" data-event-id="1">
-                    <i class="fa-regular fa-star" data-value="1"></i>
-                    <i class="fa-regular fa-star" data-value="2"></i>
-                    <i class="fa-regular fa-star" data-value="3"></i>
-                    <i class="fa-regular fa-star" data-value="4"></i>
-                    <i class="fa-regular fa-star" data-value="5"></i>
+            @if (!Model.Any())
+            {
+                <div class="list-group-item text-muted">
+                    You haven’t purchased any tickets yet.
                 </div>
-            </div>
+            }
+            else
+            {
+                @foreach (var purchase in Model)
+                {
+                    foreach (var pe in purchase.PurchaseEvents)
+                    {
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
 
-            <!-- Placeholder Purchase 2 -->
-            <div class="list-group-item">
-                <h5 class="mb-1">Another Event</h5>
-                <small>Purchased on: Dec 15, 2025</small>
+                            <div>
+                                <h5 class="mb-1">@pe.Event.Title</h5>
+                                <small>
+                                    Date: @pe.Event.Date.ToString("MMM dd, yyyy")
+                                    <br />
+                                    Location: @pe.Event.Location
+                                    <br />
+                                    Quantity: @pe.Quantity
+                                </small>
+                            </div>
 
-                <!-- Star Rating -->
-                <div class="rating mt-2" data-event-id="2">
-                    <i class="fa-regular fa-star" data-value="1"></i>
-                    <i class="fa-regular fa-star" data-value="2"></i>
-                    <i class="fa-regular fa-star" data-value="3"></i>
-                    <i class="fa-regular fa-star" data-value="4"></i>
-                    <i class="fa-regular fa-star" data-value="5"></i>
-                </div>
-            </div>
+                            <div class="text-end">
+                                <img src="https://via.placeholder.com/80x80?text=QR" class="img-thumbnail" />
+                                <br />
+                                <a class="btn btn-primary btn-sm mt-2">Download Ticket</a>
+                            </div>
 
+                        </div>
+                    }
+                }
+            }
         </div>
-
-        <small class="text-muted">Star ratings will be saved later using AJAX.</small>
     </div>
-</div>
+    </div>
+    <!-- Purchase History -->
+    <div class="col-md-6 mb-3">
+    <h4>Purchase History</h4>
 
-<div class="row">
-    <!-- Organizer Only -->
-    @if (User.IsInRole("Organizer"))
-    {
+    <div class="list-group">
+
+        @if (!Model.Any())
+        {
+            <div class="list-group-item text-muted">
+                You have not purchased any tickets yet.
+            </div>
+        }
+        else
+        {
+            @foreach (var purchase in Model)
+            {
+                foreach (var pe in purchase.PurchaseEvents)
+                {
+                    <div class="list-group-item">
+                        <h5 class="mb-1">@pe.Event.Title</h5>
+                        <small>
+                            Purchased on: @purchase.PurchaseDate.ToString("MMM dd, yyyy")
+                            <br />
+                            Quantity: @pe.Quantity
+                        </small>
+
+                        <!-- Star Rating -->
+                        <div class="rating mt-2" data-event-id="@pe.Event.Id">
+                            <i class="fa-regular fa-star" data-value="1"></i>
+                            <i class="fa-regular fa-star" data-value="2"></i>
+                            <i class="fa-regular fa-star" data-value="3"></i>
+                            <i class="fa-regular fa-star" data-value="4"></i>
+                            <i class="fa-regular fa-star" data-value="5"></i>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+    </div>
+
+    <small class="text-muted">Star ratings will be saved later using AJAX.</small>
+
+    <div class="row">
+        <!-- Organizer Only -->
+        @if (User.IsInRole("Organizer"))
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card p-3">
+                    <h4>My Events (Organizer)</h4>
+
+                    <div class="list-group">
+
+                        @foreach (var purchase in Model)
+                        {
+                            foreach (var pe in purchase.PurchaseEvents)
+                            {
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="mb-1">@pe.Event.Title</h5>
+                                        <small>
+                                            Date: @pe.Event.Date.ToString("MMM dd, yyyy") |
+                                            Location: @pe.Event.Location
+                                        </small>
+                                        <br />
+                                        <small>Quantity: @pe.Quantity</small>
+                                    </div>
+
+                                    <div class="text-end">
+                                        <img src="https://via.placeholder.com/80x80?text=QR" class="img-thumbnail" />
+                                        <br />
+                                        <a class="btn btn-primary btn-sm mt-2">Download Ticket</a>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                    </div>
+
+                    <small class="text-muted">
+                        Real events and revenue data will appear here once backend integration is added.
+                    </small>
+                </div>
+            </div>
+
+        }
+
+        <!-- Profile -->
         <div class="col-md-6 mb-3">
             <div class="card p-3">
-                <h4>My Events (Organizer)</h4>
+                <h4>Profile</h4>
 
-                <div class="list-group">
+                <div class="d-flex align-items-center mb-3">
 
-                    <!-- Placeholder Event 1 -->
-                    <div class="list-group-item">
-                        <h5 class="mb-1">Organizer Event A</h5>
-                        <small>Event Date: Feb 10, 2026</small>
-                        <br />
-                        <small>Total Revenue: $1,540</small>
+                    <!-- Profile image -->
+                    <div class="d-flex align-items-center mb-3">
+                        @{
+
+                            var currentUser = await UserManager.GetUserAsync(User);
+                            var profileImage = string.IsNullOrEmpty(currentUser?.ProfileImagePath)
+                                ? Url.Content("~/uploads/default-profile.png")
+                                : Url.Content(currentUser.ProfileImagePath);
+                        }
+
+                        <img src="@profileImage"
+                             class="rounded-circle border"
+                             style="width:80px; height:80px; object-fit:cover;" />
+
+                        <div class="ms-3">
+                            <h5>@currentUser.FullName</h5>
+                            <p class="text-muted mb-1">@currentUser.Email</p>
+                            <a class="btn btn-sm btn-primary"
+                               asp-area="Identity"
+                               asp-page="/Account/Manage/Index">
+                                Edit Profile
+                            </a>
+                        </div>
                     </div>
 
-                    <!-- Placeholder Event 2 -->
-                    <div class="list-group-item">
-                        <h5 class="mb-1">Organizer Event B</h5>
-                        <small>Event Date: Mar 3, 2026</small>
-                        <br />
-                        <small>Total Revenue: $980</small>
-                    </div>
 
                 </div>
-
-                <small class="text-muted">
-                    Real events and revenue data will appear here once backend integration is added.
-                </small>
             </div>
         </div>
 
-    }
-
-    <!-- Profile -->
-    <div class="col-md-6 mb-3">
-        <div class="card p-3">
-            <h4>Profile</h4>
-
-            <div class="d-flex align-items-center mb-3">
-
-                <!-- Profile image -->
-                <div class="d-flex align-items-center mb-3">
-                    @{
-
-                        var currentUser = await UserManager.GetUserAsync(User);
-                        var profileImage = string.IsNullOrEmpty(currentUser?.ProfileImagePath)
-                            ? Url.Content("~/uploads/default-profile.png")
-                            : Url.Content(currentUser.ProfileImagePath);
-                    }
-
-                    <img src="@profileImage"
-                         class="rounded-circle border"
-                         style="width:80px; height:80px; object-fit:cover;" />
-
-                    <div class="ms-3">
-                        <h5>@currentUser.FullName</h5>
-                        <p class="text-muted mb-1">@currentUser.Email</p>
-                        <a class="btn btn-sm btn-primary"
-                           asp-area="Identity"
-                           asp-page="/Account/Manage/Index">
-                            Edit Profile
-                        </a>
-                    </div>
-                </div>
-
-
-        </div>
-    </div>
-</div>
-
-@section Scripts {
-    <script>
+        @section Scripts {
+        <script>
         document.querySelectorAll('.rating i').forEach(star => {
             star.addEventListener('click', function () {
                 let value = this.getAttribute("data-value");
@@ -183,5 +198,6 @@
             });
         });
     </script>
+    </div>
     </div>
 }

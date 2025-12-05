@@ -2,16 +2,21 @@ using Assignment_1___COMP2139.Data;
 using Assignment_1___COMP2139.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Assignment_1___COMP2139.Controllers
 {
+    [Authorize] // Require login to purchase
     public class PurchasesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public PurchasesController(ApplicationDbContext context)
+        public PurchasesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Purchases/Create?eventId=#
@@ -58,11 +63,21 @@ namespace Assignment_1___COMP2139.Controllers
                 return View(model);
             }
 
+            //  Get logged-in user
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                ModelState.AddModelError("", "You must be logged in to complete this purchase.");
+                return View(model);
+            }
+
+            //  Create purchase with user ID
             var purchase = new Purchase
             {
                 GuestName = model.GuestName,
                 GuestEmail = model.GuestEmail,
                 PurchaseDate = DateTime.UtcNow,
+                UserId = user.Id, // << MUST HAVE THIS
                 PurchaseEvents = new List<PurchaseEvent>
                 {
                     new PurchaseEvent
@@ -73,6 +88,7 @@ namespace Assignment_1___COMP2139.Controllers
                 }
             };
 
+            // Reduce available tickets
             ev.AvailableTickets -= model.Quantity;
 
             _context.Purchases.Add(purchase);
@@ -109,6 +125,3 @@ namespace Assignment_1___COMP2139.Controllers
         }
     }
 }
-
-
-
