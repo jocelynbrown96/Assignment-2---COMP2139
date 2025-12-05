@@ -28,13 +28,21 @@ namespace Assignment_1___COMP2139.Models
         [StringLength(100, ErrorMessage = "Location cannot exceed 100 characters.")]
         public string Location { get; set; } = string.Empty;
 
-        // Foreign key for category
         [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         public Category? Category { get; set; }
 
-        // Navigation property for many-to-many relationship with purchases
         public ICollection<PurchaseEvent> PurchaseEvents { get; set; } = new List<PurchaseEvent>();
+
+        // -----------------------------
+        // NEW — Organizer Ownership
+        // -----------------------------
+
+        // The user who created the event (only Organizers)
+        public string? OrganizerId { get; set; }
+
+        // Navigation to the user account
+        public ApplicationUser? Organizer { get; set; }
     }
 }
