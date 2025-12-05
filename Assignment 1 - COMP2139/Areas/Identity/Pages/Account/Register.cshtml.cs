@@ -20,35 +20,53 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public required InputModel Input { get; set; }
+        public InputModel Input { get; set; } = new();
 
-        public class InputModel(string email, string password)
+        public class InputModel
         {
             [Required]
+            public string FullName { get; set; } = string.Empty;
+
+            [Required]
             [EmailAddress]
-            public required string Email { get; set; } = email;
+            public string Email { get; set; } = string.Empty;
 
             [Required]
             [DataType(DataType.Password)]
-            public required string Password { get; set; } = password;
+            public string Password { get; set; } = string.Empty;
 
+            [Required]
             [DataType(DataType.Password)]
             [Compare("Password", ErrorMessage = "Passwords do not match.")]
-            public required string ConfirmPassword { get; set; }
+            public string ConfirmPassword { get; set; } = string.Empty;
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
 
-            var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+            var user = new ApplicationUser {
+                UserName = Input.Email,
+                Email = Input.Email,
+                FullName = Input.FullName
+            };
             var result = await _userManager.CreateAsync(user, Input.Password);
 
             if (result.Succeeded)
             {
                 Log.Information("User registered: {Email}", Input.Email);
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                return LocalRedirect("~/");
+                // Generate email confirmation token
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var confirmationUrl = Url.Page(
+                    "/Account/ConfirmEmail",
+                    pageHandler: null,
+                    values: new { userId = user.Id, code = code },
+                    protocol: Request.Scheme);
+
+// TEMP — show the confirmation link on screen
+                TempData["ConfirmationLink"] = confirmationUrl;
+
+                return RedirectToPage("Register");
             }
 
             foreach (var error in result.Errors)

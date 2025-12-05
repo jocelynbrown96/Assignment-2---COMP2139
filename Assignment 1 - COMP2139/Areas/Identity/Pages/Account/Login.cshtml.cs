@@ -8,29 +8,42 @@ using Serilog;
 namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
 {
     [Area("Identity")]
-    public class LoginModel(SignInManager<ApplicationUser> signInManager) : PageModel
+    public class LoginModel : PageModel
     {
-        [BindProperty]
-        public required InputModel Input { get; set; }
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public class InputModel(string email, string password, bool rememberMe)
+        public LoginModel(SignInManager<ApplicationUser> signInManager)
+        {
+            _signInManager = signInManager;
+        }
+
+        [BindProperty]
+        public InputModel Input { get; set; } = new();
+
+        public class InputModel
         {
             [Required]
             [EmailAddress]
-            public required string Email { get; set; } = email;
+            public string Email { get; set; } = string.Empty;
 
             [Required]
             [DataType(DataType.Password)]
-            public required string Password { get; set; } = password;
+            public string Password { get; set; } = string.Empty;
 
-            public bool RememberMe { get; } = rememberMe;
+            public bool RememberMe { get; set; }
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid) return Page();
+            if (!ModelState.IsValid)
+                return Page();
 
-            var result = await signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+            var result = await _signInManager.PasswordSignInAsync(
+                Input.Email,
+                Input.Password,
+                Input.RememberMe,
+                lockoutOnFailure: false
+            );
 
             if (result.Succeeded)
             {
@@ -40,6 +53,7 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             Log.Warning("Failed login attempt: {Email}", Input.Email);
+
             return Page();
         }
     }
