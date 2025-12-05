@@ -149,6 +149,9 @@ namespace Assignment_1___COMP2139.Controllers
                 sb.AppendLine($"Quantity: {pe.Quantity}");
                 sb.AppendLine($"Total: ${(pe.Quantity * pe.Event.TicketPrice):F2}");
                 sb.AppendLine("----------------------------");
+                sb.AppendLine(" ");
+                sb.AppendLine("Questions? Concerns?");
+                sb.AppendLine("Contact JOCELYN BROWN :)");
             }
 
             var bytes = System.Text.Encoding.UTF8.GetBytes(sb.ToString());
@@ -190,6 +193,30 @@ namespace Assignment_1___COMP2139.Controllers
                 .ToListAsync();
 
             return View(purchases);
+        }
+        // ============================
+// GENERATE QR CODE (Dashboard)
+// ============================
+        [HttpGet]
+        public async Task<IActionResult> QRCode(int id)
+        {
+            var purchase = await _context.Purchases
+                .Include(p => p.PurchaseEvents)
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            if (purchase == null)
+                return NotFound();
+
+            // TEXT inside the QR code
+            string qrText = $"Ticket #{purchase.Id} - {purchase.GuestName}";
+
+            using var qrGenerator = new QRCodeGenerator();
+            using var qrData = qrGenerator.CreateQrCode(qrText, QRCoder.QRCodeGenerator.ECCLevel.Q);
+            using var qrCode = new PngByteQRCode(qrData);
+
+            byte[] qrBytes = qrCode.GetGraphic(20); // size
+
+            return File(qrBytes, "image/png");
         }
 
     }
