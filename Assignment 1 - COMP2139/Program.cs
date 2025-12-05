@@ -51,35 +51,44 @@ builder.Services.AddRazorPages();
 var app = builder.Build();
 
 // ----------------------------------------
-// Seed Roles + Default Users
+// Apply Migrations & Seed Database
 // ----------------------------------------
 using (var scope = app.Services.CreateScope())
 {
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var services = scope.ServiceProvider;
 
-    // Create roles: Admin, Organizer, Attendee
-    await DbInitializer.SeedRoles(roleManager);
-
-    // Create the default admin user
-    await DbInitializer.SeedAdminUser(userManager, roleManager);
-
-    // ----------------------------------------------------
-    // Promote Mackenzie to Organizer
-    // ----------------------------------------------------
-    var mackenzie = await userManager.FindByEmailAsync("macken@gmail.com");
-    if (mackenzie != null && !await userManager.IsInRoleAsync(mackenzie, "Organizer"))
+    try
     {
-        await userManager.AddToRoleAsync(mackenzie, "Organizer");
+        var context = services.GetRequiredService<ApplicationDbContext>();
+
+        // Apply any pending migrations
+        context.Database.Migrate();
+
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+
+        // Seed roles and default admin user
+        await DbInitializer.SeedRoles(roleManager);
+        await DbInitializer.SeedAdminUser(userManager, roleManager);
+
+        // Promote Mackenzie to Organizer
+        var mackenzie = await userManager.FindByEmailAsync("macken@gmail.com");
+        if (mackenzie != null && !await userManager.IsInRoleAsync(mackenzie, "Organizer"))
+        {
+            await userManager.AddToRoleAsync(mackenzie, "Organizer");
+        }
+
+        // Promote Kelly to Admin
+        var kelly = await userManager.FindByEmailAsync("kelly@gmail.com");
+        if (kelly != null && !await userManager.IsInRoleAsync(kelly, "Admin"))
+        {
+            await userManager.AddToRoleAsync(kelly, "Admin");
+        }
     }
-
-    // ----------------------------------------------------
-    // Promote Kelly to Admin
-    // ----------------------------------------------------
-    var kelly = await userManager.FindByEmailAsync("kelly@gmail.com");
-    if (kelly != null && !await userManager.IsInRoleAsync(kelly, "Admin"))
+    catch (Exception ex)
     {
-        await userManager.AddToRoleAsync(kelly, "Admin");
+        Log.Error(ex, "An error occurred while migrating or seeding the database.");
+        throw;
     }
 }
 
@@ -88,20 +97,14 @@ using (var scope = app.Services.CreateScope())
 // ----------------------------------------
 if (!app.Environment.IsDevelopment())
 {
-    // Custom 500 page
     app.UseExceptionHandler("/Home/500");
-
-    // Custom 404, 403, etc.
     app.UseStatusCodePagesWithReExecute("/Home/Error{0}");
-
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -109,7 +112,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
 app.MapRazorPages();
 
 app.Run();
