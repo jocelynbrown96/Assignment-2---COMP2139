@@ -16,30 +16,36 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account.Manage
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel Input { get; set; } = new();
 
         [TempData]
-        public string StatusMessage { get; set; }
+        public string? StatusMessage { get; set; }
 
         public class InputModel
         {
             [Required]
-            public string FullName { get; set; }
+            public string FullName { get; set; } = string.Empty;
 
             [Required, EmailAddress]
-            public string Email { get; set; }
+            public string Email { get; set; } = string.Empty;
 
-            public IFormFile ProfileImage { get; set; }
+            public IFormFile? ProfileImage { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound("Unable to load user.");
+            }
+
             Input = new InputModel
             {
                 FullName = user.FullName,
                 Email = user.Email
             };
+
             return Page();
         }
 
@@ -49,11 +55,36 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account.Manage
                 return Page();
 
             var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                StatusMessage = "Error: user not found.";
+                return RedirectToPage();
+            }
 
+            // 1) Update full name
             user.FullName = Input.FullName;
-            user.Email = Input.Email;
-            user.UserName = Input.Email;
 
+            // 2) Update email + username via Identity helpers (safer)
+            if (user.Email != Input.Email)
+            {
+                var setEmailResult = await _userManager.SetEmailAsync(user, Input.Email);
+                if (!setEmailResult.Succeeded)
+                {
+                    foreach (var error in setEmailResult.Errors)
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    return Page();
+                }
+
+                var setUserNameResult = await _userManager.SetUserNameAsync(user, Input.Email);
+                if (!setUserNameResult.Succeeded)
+                {
+                    foreach (var error in setUserNameResult.Errors)
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    return Page();
+                }
+            }
+
+            // 3) Profile image upload
             if (Input.ProfileImage != null)
             {
                 var uploadsFolder = Path.Combine("wwwroot", "uploads");
@@ -71,7 +102,14 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account.Manage
                 user.ProfileImagePath = "/uploads/" + fileName;
             }
 
-            await _userManager.UpdateAsync(user);
+            // 4) Save changes (FullName + ProfileImagePath)
+            var updateResult = await _userManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                foreach (var error in updateResult.Errors)
+                    ModelState.AddModelError(string.Empty, error.Description);
+                return Page();
+            }
 
             StatusMessage = "Profile updated successfully!";
             return RedirectToPage();
