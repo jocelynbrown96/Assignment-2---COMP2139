@@ -2,11 +2,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Serilog;
 
 namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
 {
-    [Area("Identity")]
     public class LogoutModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -16,10 +14,21 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
             _signInManager = signInManager;
         }
 
-        public async Task OnPostAsync()
+        public async Task<IActionResult> OnPost(string returnUrl = null)
         {
             await _signInManager.SignOutAsync();
-            Log.Information("User logged out.");
+
+            // Redirect wherever you want after logout
+            if (returnUrl != null)
+                return LocalRedirect(returnUrl);
+
+            return RedirectToPage("/Account/Login", new { area = "Identity" });
+        }
+
+        public IActionResult OnGet()
+        {
+            // Prevent GET requests from showing a logout page
+            return RedirectToPage("/Account/Login", new { area = "Identity" });
         }
     }
 }
