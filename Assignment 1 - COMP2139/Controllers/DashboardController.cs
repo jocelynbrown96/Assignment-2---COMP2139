@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Assignment_1___COMP2139.Controllers
 {
-    [Authorize] // Only logged-in users can access this
+    [Authorize] // User must be logged in
     public class DashboardController : Controller
     {
         public IActionResult Index()
