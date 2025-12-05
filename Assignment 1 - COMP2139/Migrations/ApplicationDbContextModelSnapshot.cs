@@ -150,6 +150,9 @@ namespace Assignment_1___COMP2139.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
+                    b.Property<string>("OrganizerId")
+                        .HasColumnType("text");
+
                     b.Property<decimal>("TicketPrice")
                         .HasColumnType("numeric");
 
@@ -160,6 +163,8 @@ namespace Assignment_1___COMP2139.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("OrganizerId");
 
                     b.ToTable("Events");
 
@@ -477,7 +482,13 @@ namespace Assignment_1___COMP2139.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Assignment_1___COMP2139.Models.ApplicationUser", "Organizer")
+                        .WithMany()
+                        .HasForeignKey("OrganizerId");
+
                     b.Navigation("Category");
+
+                    b.Navigation("Organizer");
                 });
 
             modelBuilder.Entity("Assignment_1___COMP2139.Models.Purchase", b =>

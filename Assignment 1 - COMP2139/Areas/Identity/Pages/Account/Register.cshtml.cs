@@ -55,6 +55,10 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
             if (result.Succeeded)
             {
                 Log.Information("User registered: {Email}", Input.Email);
+
+                // ⭐ NEW: Assign all new users to the Attendee role
+                await _userManager.AddToRoleAsync(user, "Attendee");
+
                 // Generate email confirmation token
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var confirmationUrl = Url.Page(
@@ -63,7 +67,7 @@ namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
                     values: new { userId = user.Id, code = code },
                     protocol: Request.Scheme);
 
-// TEMP — show the confirmation link on screen
+                // TEMP — show the confirmation link on screen
                 TempData["ConfirmationLink"] = confirmationUrl;
 
                 return RedirectToPage("Register");

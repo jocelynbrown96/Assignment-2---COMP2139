@@ -1,5 +1,7 @@
 using Assignment_1___COMP2139.Data;
 using Assignment_1___COMP2139.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,13 +10,17 @@ namespace Assignment_1___COMP2139.Controllers
     public class EventsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public EventsController(ApplicationDbContext context)
+        public EventsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
-        // Index (search + category filter + price sorting)
+        // -----------------------------
+        // INDEX (Everyone can view)
+        // -----------------------------
         public async Task<IActionResult> Index(string searchString, int? categoryId, string sortOrder)
         {
             var categories = await _context.Categories.ToListAsync();
@@ -35,23 +41,22 @@ namespace Assignment_1___COMP2139.Controllers
                 events = events.Where(e => e.CategoryId == categoryId.Value);
             }
 
-            // Price filter logic
             switch (sortOrder)
             {
                 case "priceAsc":
-                    events = events.OrderBy(e => e.TicketPrice); // Use your actual price property name
+                    events = events.OrderBy(e => e.TicketPrice);
                     break;
                 case "priceDesc":
                     events = events.OrderByDescending(e => e.TicketPrice);
-                    break;
-                default:
                     break;
             }
 
             return View(await events.ToListAsync());
         }
 
-        // Details
+        // -----------------------------
+        // DETAILS (Everyone can view)
+        // -----------------------------
         public async Task<IActionResult> Details(int id)
         {
             var eventItem = await _context.Events
@@ -64,42 +69,64 @@ namespace Assignment_1___COMP2139.Controllers
             return View(eventItem);
         }
 
-        // Create (GET)
+        // -----------------------------
+        // CREATE (Only Admin + Organizer)
+        // -----------------------------
+        [Authorize(Roles = "Admin,Organizer")]
         public IActionResult Create()
         {
             ViewBag.Categories = _context.Categories.ToList();
             return View();
         }
 
-        // Create (POST)
+        [Authorize(Roles = "Admin,Organizer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Event newEvent)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                newEvent.Date = DateTime.SpecifyKind(newEvent.Date, DateTimeKind.Utc);
-                _context.Events.Add(newEvent);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ViewBag.Categories = _context.Categories.ToList();
+                return View(newEvent);
             }
 
-            ViewBag.Categories = _context.Categories.ToList();
-            return View(newEvent);
+            // Assign organizer ID (Admin events have null organizer)
+            var user = await _userManager.GetUserAsync(User);
+            if (User.IsInRole("Organizer"))
+            {
+                newEvent.OrganizerId = user.Id;
+            }
+
+            newEvent.Date = DateTime.SpecifyKind(newEvent.Date, DateTimeKind.Utc);
+
+            _context.Events.Add(newEvent);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        // Edit (GET)
+        // -----------------------------
+        // EDIT (Admin can edit any event; Organizer only their own)
+        // -----------------------------
+        [Authorize(Roles = "Admin,Organizer")]
         public async Task<IActionResult> Edit(int id)
         {
             var eventItem = await _context.Events.FindAsync(id);
             if (eventItem == null)
                 return NotFound();
 
+            // Organizer can only edit their own events
+            if (User.IsInRole("Organizer"))
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (eventItem.OrganizerId != user.Id)
+                    return Forbid();
+            }
+
             ViewBag.Categories = _context.Categories.ToList();
             return View(eventItem);
         }
 
-        // Edit (POST)
+        [Authorize(Roles = "Admin,Organizer")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Event updatedEvent)
@@ -107,30 +134,45 @@ namespace Assignment_1___COMP2139.Controllers
             if (id != updatedEvent.Id)
                 return NotFound();
 
-            if (ModelState.IsValid)
+            // Check ownership before saving
+            if (User.IsInRole("Organizer"))
             {
-                try
-                {
-                    updatedEvent.Date = DateTime.SpecifyKind(updatedEvent.Date, DateTimeKind.Utc);
+                var user = await _userManager.GetUserAsync(User);
+                var originalEvent = await _context.Events.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
 
-                    _context.Update(updatedEvent);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Events.Any(e => e.Id == updatedEvent.Id))
-                        return NotFound();
-                    else
-                        throw;
-                }
-                return RedirectToAction(nameof(Index));
+                if (originalEvent == null)
+                    return NotFound();
+
+                if (originalEvent.OrganizerId != user.Id)
+                    return Forbid();
             }
 
-            ViewBag.Categories = _context.Categories.ToList();
-            return View(updatedEvent);
+            if (!ModelState.IsValid)
+            {
+                ViewBag.Categories = _context.Categories.ToList();
+                return View(updatedEvent);
+            }
+
+            try
+            {
+                updatedEvent.Date = DateTime.SpecifyKind(updatedEvent.Date, DateTimeKind.Utc);
+                _context.Update(updatedEvent);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!_context.Events.Any(e => e.Id == updatedEvent.Id))
+                    return NotFound();
+                throw;
+            }
+
+            return RedirectToAction(nameof(Index));
         }
 
-        // Delete (GET)
+        // -----------------------------
+        // DELETE (Admin can delete anything; Organizer only their own)
+        // -----------------------------
+        [Authorize(Roles = "Admin,Organizer")]
         public async Task<IActionResult> Delete(int id)
         {
             var eventItem = await _context.Events
@@ -140,22 +182,38 @@ namespace Assignment_1___COMP2139.Controllers
             if (eventItem == null)
                 return NotFound();
 
+            // Organizer must own the event
+            if (User.IsInRole("Organizer"))
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (eventItem.OrganizerId != user.Id)
+                    return Forbid();
+            }
+
             return View(eventItem);
         }
 
-        // Delete (POST)
+        [Authorize(Roles = "Admin,Organizer")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var eventItem = await _context.Events.FindAsync(id);
-            if (eventItem != null)
+
+            if (eventItem == null)
+                return RedirectToAction(nameof(Index));
+
+            // Ownership enforcement
+            if (User.IsInRole("Organizer"))
             {
-                _context.Events.Remove(eventItem);
-                await _context.SaveChangesAsync();
+                var user = await _userManager.GetUserAsync(User);
+                if (eventItem.OrganizerId != user.Id)
+                    return Forbid();
             }
+
+            _context.Events.Remove(eventItem);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
     }
 }
