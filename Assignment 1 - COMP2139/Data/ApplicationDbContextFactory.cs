@@ -10,7 +10,7 @@ namespace Assignment_1___COMP2139.Data
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
             // Use your PostgreSQL connection string
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=VirtualEventDB;Username=postgres;Password=mjamesh");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=VirtualEventDB;Username=postgres;Password=Hello!project1");
 
             return new ApplicationDbContext(optionsBuilder.Options);
         }

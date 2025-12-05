@@ -15,12 +15,12 @@ namespace Assignment_1___COMP2139.Models
 
         public DateTime PurchaseDate { get; set; } = DateTime.UtcNow;
 
-        // ⭐ NEW — Link purchase to logged-in user
+        // Link purchase to logged-in user
         [Required]
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]
-        public ApplicationUser User { get; set; }
+        public ApplicationUser User { get; set; }  // Use ApplicationUser here
 
         // Many-to-many navigation
         public ICollection<PurchaseEvent> PurchaseEvents { get; set; } = new List<PurchaseEvent>();
