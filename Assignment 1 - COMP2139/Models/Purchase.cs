@@ -15,11 +15,19 @@ namespace Assignment_1___COMP2139.Models
 
         public DateTime PurchaseDate { get; set; } = DateTime.UtcNow;
 
-        // Navigation property for many-to-many
+        // ⭐ NEW — Link purchase to logged-in user
+        [Required]
+        public string UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public ApplicationUser User { get; set; }
+
+        // Many-to-many navigation
         public ICollection<PurchaseEvent> PurchaseEvents { get; set; } = new List<PurchaseEvent>();
 
-        // Computed property for total cost
+        // Total calculated cost
         [NotMapped]
-        public decimal TotalCost => PurchaseEvents?.Sum(pe => (pe.Event?.TicketPrice ?? 0) * pe.Quantity) ?? 0;
+        public decimal TotalCost =>
+            PurchaseEvents?.Sum(pe => (pe.Event?.TicketPrice ?? 0) * pe.Quantity) ?? 0;
     }
 }

@@ -305,7 +305,13 @@ namespace Assignment_1___COMP2139.Migrations
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Purchases");
                 });
@@ -472,6 +478,17 @@ namespace Assignment_1___COMP2139.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Assignment_1___COMP2139.Models.Purchase", b =>
+                {
+                    b.HasOne("Assignment_1___COMP2139.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Assignment_1___COMP2139.Models.PurchaseEvent", b =>
