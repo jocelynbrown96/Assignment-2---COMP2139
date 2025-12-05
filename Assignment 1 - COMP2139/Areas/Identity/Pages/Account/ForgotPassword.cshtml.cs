@@ -1,36 +1,52 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Assignment_1___COMP2139.Models;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Serilog;
+using Assignment_1___COMP2139.Models;
 
 namespace Assignment_1___COMP2139.Areas.Identity.Pages.Account
 {
-    [Area("Identity")]
-    public class ForgotPasswordModel(UserManager<ApplicationUser> userManager) : PageModel
+    [AllowAnonymous]
+    public class ForgotPasswordModel : PageModel
     {
-        [BindProperty]
-        public required InputModel Input { get; set; }
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public class InputModel(string email)
+        public ForgotPasswordModel(UserManager<ApplicationUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
+        [BindProperty]
+        public InputModel Input { get; set; } = new InputModel(); // MUST be settable + instance!
+
+        public class InputModel
         {
             [Required]
             [EmailAddress]
-            public required string Email { get; set; } = email;
+            public string Email { get; set; } = string.Empty;
+        }
+
+        public void OnGet()
+        {
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid) return Page();
+            if (!ModelState.IsValid)
+                return Page();
 
-            var user = await userManager.FindByEmailAsync(Input.Email);
-            if (user != null && await userManager.IsEmailConfirmedAsync(user))
-            {
-                Log.Information("Password reset requested: {Email}", Input.Email);
-            }
+            var user = await _userManager.FindByEmailAsync(Input.Email);
 
-            return RedirectToPage("/Account/ForgotPasswordConfirmation");
+            // For security, always pretend to succeed
+            if (user == null)
+                return RedirectToPage("./ForgotPasswordConfirmation");
+
+            // Normally: generate token + send email
+            // But for assignment → we skip emailing
+
+            return RedirectToPage("./ForgotPasswordConfirmation");
         }
     }
 }

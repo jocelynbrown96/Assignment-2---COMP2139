@@ -21,4 +21,14 @@
         <input asp-for="Input.RememberMe"/> Remember Me
     </div>
     <button type="submit">Login</button>
+    <p>
+        <a asp-area="Identity" asp-page="/Account/ForgotPassword">
+            Forgot your password?
+        </a>
+    </p>
+    <div class="mt-3">
+        <a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Index">
+            Back to Home
+        </a>
+    </div>
 </form>
